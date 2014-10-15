@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="about">About</string>
-	<string name="about_text">![Ema Personal
-		Wiki](http://janwillemboer.nl/ema/android/about_ema.png)\n\n
-		**Ema Personal Wiki for Android** is a notebook with linkable
+	<string name="about_text">Thiki Wiki\n\n
+		**Thiki Wiki for Android** is a notebook with linkable
 		pages for tracking your ideas, tasks, projects, notes,
 		brainstorms - in short, your life - in the most flexible way. \n\n
-		This software was written by Jan Willem Boer in 2010. You can contact him
-		with suggestions or bugs
-		at ema@janwillemboer.nl or via the website
-		&lt;http://www.janwillemboer.nl/blog/ema-personal-wiki&gt;.\n\n
+		This software was derived from code written by Jan Willem Boer in 2010. 
+		This version is maintained by danny.ayers@gmail.com.\n\n
 		This software is provided \'as-is\', without any express or implied
 		warranty. In no event will the author(s) be held liable for any
 		damages
@@ -18,17 +15,11 @@
 		allows you personally to use the software.
 		So, if you buy a new Android device, or if you have two Android devices,
 		you may install the software more
-		than once. Please contact Jan Willem Boer in case of any trouble with
-		this. And because the author is
-		in a generous mood, you may also install the software for your spouse
-		and children if this helps you and/or
-		them.\n\n
-		This software is also available as a Windows app for a desktop computer.
-		If you bought the Android app,
-		you can download the Windows Ema Personal Wiki app too.  
+		than once. Please contact Danny Ayers in case of any trouble with
+		this.\n\n 
   </string>
 	<string name="add_page">Add</string>
-	<string name="app_name">Ema Personal Wiki</string>
+	<string name="app_name">Thiki Wiki</string>
 	<string name="back">Back</string>
 	<string name="confirm">OK</string>
 	<string name="cancel">Cancel</string>
@@ -48,17 +39,13 @@
 		This wiki uses [Markdown formatting](http://en.wikipedia.org/wiki/Markdown#Syntax_examples)
 		for text editing.\n\n
 
-		![Ema Personal
-		Wiki](http://janwillemboer.nl/ema/android/about_ema.png)\n\n
-
-		Ema Personal Wiki is a notebook with linkable pages for
+	    Thiki Wiki is a notebook with linkable pages for
 		tracking your ideas, tasks, projects, notes, brainstorms - in short,
 		your life - in the most flexible way.
 		If you have any further
 		questions, don\'t hesitate to contact the
 		developer at
-		ema@janwillemboer.nl or go to
-		&lt;http://www.janwillemboer.nl/blog/ema-personal-wiki&gt;.</string>
+		danny.ayers@gmail.com.</string>
 	<string name="delete">Delete</string>
 	<string name="do_dropbox_login">Log in</string>
 	<string name="do_dropbox_logout">Forget credentials</string>
@@ -67,7 +54,7 @@
 	<string name="dropbox_password">Password</string>
 	<string name="edit">Edit</string>
 	<string name="edit_css">Edit CSS</string>
-	<string name="enter_valid_email">Please enter a seemingly valid emailaddress for
+	<string name="enter_valid_email">Please enter a seemingly valid email address for
 		username.</string>
 	<string name="enter_password">Please enter your password.</string>
 	<string name="help">Help</string>
@@ -88,7 +75,7 @@
 	<string name="save">Save</string>
 	<string name="save_error">An error occurred while saving the page.</string>
 	<string name="storage_not_accessible">The SD card is not accessible.</string>
-	<string name="storage_dir_creation_failed">Could not create directory PersonalWiki on the SD
+	<string name="storage_dir_creation_failed">Could not create directory ThoughtCatcher on the SD
 		card.</string>
 	<string name="sync">Sync</string>
 	<string name="sync_settings">Sync settings</string>
@@ -100,6 +87,6 @@
 	<string name="synchronizing">Syncing</string>
 	<string name="syncError">There was a synchronization error.</string>
 	<string name="unknownMimetype">Could not find the app to view this file.</string>
-	<string name="v2_update_title">Ema update</string>
-	<string name="v2_update_text">EMA now uses the new Dropbox API.\n\All files must be downloaded from Dropbox; local changes will be lost. A backup of all files has been made to the SD card in the directory PersonalWiki-backup-v2.</string>
+	<string name="v2_update_title">Thiki update</string>
+	<string name="v2_update_text">Thiki uses the new Dropbox API.\n\All files must be downloaded from Dropbox; local changes will be lost. A backup of all files has been made to the SD card in the directory ThoughtCatcher-backup.</string>
 </resources>

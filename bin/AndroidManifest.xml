@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="com.janwillemboer.ema" android:versionCode="8"
+	package="org.thoughtcatchers.thiki" android:versionCode="8"
 	android:versionName="2.0.8">
 	<application android:icon="@drawable/icon" android:label="@string/app_name">
-		<provider android:name=".LocalFileContentProvider"
-			android:authorities="com.janwillemboer.ema.localfile" />
+		<provider android:name="org.thoughtcatchers.thiki.LocalFileContentProvider"
+			android:authorities="org.thoughtcatchers.thiki.localfile" />
 		<activity android:name="PagesList" />
 		<activity android:name="NewPageName" android:theme="@android:style/Theme.Dialog"></activity>
 		<activity android:name="EditPage"></activity>
@@ -14,13 +14,14 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-		<activity android:name="com.janwillemboer.ema.dropbox.EditSyncPreferences" />
+		<activity android:name="org.thoughtcatchers.thiki.dropbox.EditSyncPreferences" />
 	<activity
       android:name="com.dropbox.client2.android.AuthActivity"
       android:launchMode="singleTask"
       android:configChanges="orientation|keyboard">
       <intent-filter>
-        <data android:scheme="db-l8tliwhtfvkrxl7" />
+        <data android:scheme="db-obzo2ccf2eb7sfi" />
+        <!--   data android:scheme="db-l8tliwhtfvkrxl7" / -->
         <action android:name="android.intent.action.VIEW" />
         <category android:name="android.intent.category.BROWSABLE"/>
         <category android:name="android.intent.category.DEFAULT" />

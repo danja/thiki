@@ -3,8 +3,10 @@ Thiki is a first attempt at a Semantic Web-friendly Wiki that will be supported 
 More notes at https://workflowy.com/s/6sKSQw18Tj
 
 The Web version will be based on https://github.com/danja/seki
+org.thoughtcatchers.thiki
+com.janwillemboer.ema
 
-Contains material (the basic Android app) derived from :
+Contains material (the core Android app) derived from :
 
 https://github.com/janwillemb/Ema-Personal-Wiki
 
