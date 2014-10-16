@@ -18,11 +18,11 @@ import org.thoughtcatchers.thiki.R;
 
 public class EditSyncPreferences extends Activity {
 
-	private DropboxAuthentication mDropboxAuth;
-	private ThikiActivityHelper mHelper;
-	private boolean mLoggedIn;
-	private SyncPrefs mPreferences;
-	private Button mSubmit;
+	private DropboxAuthentication dropboxAuth;
+	private ThikiActivityHelper activityHelper;
+	private boolean isLoggedIn;
+	private SyncPrefs syncPreferences;
+	private Button submitButton;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -30,10 +30,10 @@ public class EditSyncPreferences extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.dropbox_sync);
 
-		mHelper = new ThikiActivityHelper(this);
-		mPreferences = new SyncPrefs(this);
+		activityHelper = new ThikiActivityHelper(this);
+		syncPreferences = new SyncPrefs(this);
 
-		mSubmit = mHelper.find(R.id.login_submit);
+		submitButton = activityHelper.find(R.id.login_submit);
 
 		initializeBooleans();
 		initializeSpinner();
@@ -41,45 +41,43 @@ public class EditSyncPreferences extends Activity {
 	}
 
 	private void initializeBooleans() {
-		CheckBox cb;
-
-		cb = mHelper.find(R.id.after_edit);
-		cb.setChecked(mPreferences.getAfterEdit());
-		cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+		CheckBox checkBox = activityHelper.find(R.id.after_edit);
+		checkBox.setChecked(syncPreferences.getAfterEdit());
+		checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			public void onCheckedChanged(CompoundButton buttonView,
 					boolean isChecked) {
-				mPreferences.setAfterEdit(isChecked);
+				syncPreferences.setAfterEdit(isChecked);
 			}
 		});
 
-		cb = mHelper.find(R.id.when_starting_app);
-		cb.setChecked(mPreferences.getOnStartup());
-		cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+		checkBox = activityHelper.find(R.id.when_starting_app);
+		checkBox.setChecked(syncPreferences.getOnStartup());
+		checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			public void onCheckedChanged(CompoundButton buttonView,
 					boolean isChecked) {
-				mPreferences.setOnStartup(isChecked);
+				syncPreferences.setOnStartup(isChecked);
 			}
 		});
 
-		cb = mHelper.find(R.id.periodically);
-		cb.setChecked(mPreferences.getPeriodically());
-		cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+		checkBox = activityHelper.find(R.id.periodically);
+		checkBox.setChecked(syncPreferences.getPeriodically());
+		checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			public void onCheckedChanged(CompoundButton buttonView,
 					boolean isChecked) {
-				mPreferences.setPeriodically(isChecked);
+				syncPreferences.setPeriodically(isChecked);
 			}
 		});
 	}
 
 	private void initializeLoginControls() {
-		mDropboxAuth = new DropboxAuthentication(this);
+		dropboxAuth = new DropboxAuthentication(this);
 
-		mSubmit.setOnClickListener(new OnClickListener() {
+		submitButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				if (mLoggedIn) {
+				if (isLoggedIn) {
 					//logout
 					setLoggedIn(false);
-					mDropboxAuth.logout();
+					dropboxAuth.logout();
 				} else {
 					// Try to log in
 					doLogin();
@@ -87,19 +85,19 @@ public class EditSyncPreferences extends Activity {
 			}
 		});
 
-		setLoggedIn(mDropboxAuth.getIsAuthenticated());
+		setLoggedIn(dropboxAuth.isAuthenticated());
 	}
 
 	private void initializeSpinner() {
 		final Integer[] items = new Integer[] { 1, 2, 5, 10, 15, 20, 30, 45, 60 };
-		Spinner spinner = mHelper.find(R.id.minutes_spinner);
+		Spinner spinner = activityHelper.find(R.id.minutes_spinner);
 		ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(this,
 				android.R.layout.simple_spinner_item, items);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(adapter);
 
 		// find position of setting in items
-		final int minutes = mPreferences.getIntervalMinutes();
+		final int minutes = syncPreferences.getIntervalMinutes();
 		int position = 3; // 10
 		for (int ix = 0; ix < items.length; ix++) {
 			if (items[ix] == minutes) {
@@ -113,7 +111,7 @@ public class EditSyncPreferences extends Activity {
 
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3) {
-				mPreferences.setIntervalMinutes(items[arg2]);
+				syncPreferences.setIntervalMinutes(items[arg2]);
 			}
 
 			public void onNothingSelected(AdapterView<?> arg0) {
@@ -122,22 +120,22 @@ public class EditSyncPreferences extends Activity {
 	}
 
 	private void doLogin() {
-		mDropboxAuth.startAuthentication();
+		dropboxAuth.startAuthentication();
 	}
 
 	protected void onResume() {
 		super.onResume();
 
-		mDropboxAuth.authenticationFinished();
-		setLoggedIn(mDropboxAuth.getIsAuthenticated());
+		dropboxAuth.authenticationFinished();
+		setLoggedIn(dropboxAuth.isAuthenticated());
 	}
 
 	public void setLoggedIn(boolean loggedIn) {
-		mLoggedIn = loggedIn;
+		isLoggedIn = loggedIn;
 		if (loggedIn) {
-			mSubmit.setText(getText(R.string.do_dropbox_logout));
+			submitButton.setText(getText(R.string.do_dropbox_logout));
 		} else {
-			mSubmit.setText(getText(R.string.do_dropbox_login));
+			submitButton.setText(getText(R.string.do_dropbox_login));
 		}
 	}
 

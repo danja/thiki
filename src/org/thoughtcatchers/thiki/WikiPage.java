@@ -17,25 +17,25 @@ public class WikiPage {
 	public static final String THIKI_PAGES_PREFIX = "Thiki.";
 	public static final String ABOUT_PAGE = THIKI_PAGES_PREFIX + "About";
 
-	public static final String EXT = ".txt";
+	public static final String EXT = ".md";
 	public static String css = "";
 	public static String defaultPageDefaultContent = "";
 	public static String aboutPageContent = "";
 
-	private File mFile;
+	private File pageFile;
 
 	public WikiPage(File f) {
-		mFile = f;
+		pageFile = f;
 	}
 
 	public String getName() {
-		String pageName = mFile.getName();
+		String pageName = pageFile.getName();
 		pageName = pageName.substring(0, pageName.length() - EXT.length());
 		return pageName;
 	}
 
 	public String getBody() throws IOException {
-		if (!mFile.exists()
+		if (!pageFile.exists()
 				|| getName().toLowerCase().startsWith(
 						THIKI_PAGES_PREFIX.toLowerCase())) {
 			// create default file content, ie empty in most cases.
@@ -44,7 +44,7 @@ public class WikiPage {
 		}
 
 		// read content from file
-		return FileStuff.readContents(mFile);
+		return FileIO.readContents(pageFile);
 	}
 
 	private String defaultContent() {
@@ -205,7 +205,7 @@ public class WikiPage {
 	}
 
 	public File getFile() {
-		return mFile;
+		return pageFile;
 	}
 
 }

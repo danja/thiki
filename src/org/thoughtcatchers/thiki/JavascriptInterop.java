@@ -2,12 +2,12 @@ package org.thoughtcatchers.thiki;
 
 public class JavascriptInterop {
 
-	private Listener mListener;
+	private Listener listener;
 	public JavascriptInterop(Listener l) {
-		mListener= l;
+		listener= l;
 	}
 	public void sendMessage(String command, String parameters)  {
-		mListener.sendMessage(command, parameters);
+		listener.sendMessage(command, parameters);
 	}
 	
 	public interface Listener {

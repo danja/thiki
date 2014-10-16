@@ -11,6 +11,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
 
+import android.util.Log;
+
 import com.dropbox.client2.DropboxAPI;
 import com.dropbox.client2.DropboxAPI.Entry;
 import com.dropbox.client2.android.AndroidAuthSession;
@@ -18,22 +20,22 @@ import com.dropbox.client2.exception.DropboxException;
 
 public class DropboxWrapper {
 
-	private DropboxAPI<AndroidAuthSession> mAPI;
+	private DropboxAPI<AndroidAuthSession> dropboxAPI;
 
 	public DropboxWrapper(DropboxAPI<AndroidAuthSession> api) {
-		mAPI = api;
+		dropboxAPI = api;
 	}
 
 	public Entry getOrCreateFolder(String name) throws DropboxException {
 		try {
-			Entry retval = mAPI.metadata(name, 0, null, true, null);
+			Entry retval = dropboxAPI.metadata(name, 0, null, true, null);
 			if (retval.isDir) {
 				return retval;
 			}
 		} catch (DropboxException ex) {
-
+			Log.e("DropboxWrapper", ex.getMessage()+" on "+name);
 		}
-		return mAPI.createFolder(name);
+		return dropboxAPI.createFolder(name);
 	}
 
 	public Entry putFile(String path, File file) throws DropboxException {
@@ -41,15 +43,17 @@ public class DropboxWrapper {
 		InputStream is = null;
 		try {
 			is = new BufferedInputStream(new FileInputStream(file));
-			return mAPI.putFileOverwrite(path + "/" + file.getName(), is,
+			path = path + "/" + file.getName();
+			return dropboxAPI.putFileOverwrite(path, is,
 					file.length(), null);
 		} catch (FileNotFoundException e) {
+			Log.e("DropboxWrapper", e.getMessage()+" on "+path);
 		} finally {
 			if (is != null)
 				try {
 					is.close();
 				} catch (IOException e) {
-					// scheiss doch in die hosen mein freund
+					Log.e("DropboxWrapper", e.getMessage());
 				}
 		}
 		return null;
@@ -60,13 +64,15 @@ public class DropboxWrapper {
 		OutputStream os = null;
 		try {
 			os = new BufferedOutputStream(new FileOutputStream(file));
-			mAPI.getFile(path + "/" + file.getName(), null, os, null);
+			path = path + "/" + file.getName();
+			dropboxAPI.getFile(path, null, os, null);
 		} catch (FileNotFoundException e) {
+			Log.e("DropboxWrapper", e.getMessage()+" on "+path);
 			if (os != null) {
 				try {
 					os.close();
 				} catch (IOException e1) {
-					// poop
+					Log.e("DropboxWrapper", e1.getMessage());
 				}
 			}
 

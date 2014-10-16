@@ -17,31 +17,33 @@ import org.thoughtcatchers.thiki.WikiPage;
 
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 
 import com.dropbox.client2.DropboxAPI.Entry;
 import com.dropbox.client2.exception.DropboxException;
+
 import org.thoughtcatchers.thiki.R;
 
 public class Sync {
 
-	private final static String METADATA_FILE = "sync-metadata-v2.json";
+	private final static String METADATA_FILE = "thiki-sync-metadata.json";
 
-	private ThikiActivityHelper mHelper;
-	private File mLocalDir;
-	private Handler mProgressUpdateHandler;
-	private DropboxWrapper mApi;
-	private JSONObject mSyncMetadata;
+	private ThikiActivityHelper activityHelper;
+	private File localDir;
+	private Handler progressUpdateHandler;
+	private DropboxWrapper dropboxApi;
+	private JSONObject syncMetadata;
 
 	public Sync(ThikiActivityHelper helper, DropboxWrapper api) {
-		mApi = api;
-		mHelper = helper;
+		dropboxApi = api;
+		activityHelper = helper;
 
-		mLocalDir = mHelper.getDal().Dir();
+		localDir = activityHelper.getPagesFiles().Dir();
 
-		File syncMetadataFile = new File(mLocalDir, METADATA_FILE);
+		File syncMetadataFile = new File(localDir, METADATA_FILE);
 
 		if (!syncMetadataFile.exists()) {
-			mSyncMetadata = new JSONObject();
+			syncMetadata = new JSONObject();
 			return;
 		}
 
@@ -51,7 +53,7 @@ public class Sync {
 			char[] buffer = new char[(int) syncMetadataFile.length()];
 			br.read(buffer);
 
-			mSyncMetadata = new JSONObject(new String(buffer));
+			syncMetadata = new JSONObject(new String(buffer));
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		} finally {
@@ -59,6 +61,7 @@ public class Sync {
 				try {
 					br.close();
 				} catch (Exception e) {
+					Log.e("Sync", e.getMessage()+" on "+syncMetadataFile.getAbsolutePath());
 				}
 			}
 		}
@@ -66,39 +69,39 @@ public class Sync {
 	}
 
 	public void setStatusHandler(Handler progressUpdate) {
-		mProgressUpdateHandler = progressUpdate;
+		progressUpdateHandler = progressUpdate;
 	}
 
 	public boolean perform() throws IOException, DropboxException {
-		Entry syncDir = mApi.getOrCreateFolder("/ThoughtCatcher");
+		Entry syncDir = dropboxApi.getOrCreateFolder(SyncFileInfo.DROPBOX_FOLDER);
 
 		showProgress(1, 0);
 
 		// create a list of all local files
 		Map<String, SyncFileInfo> files = new HashMap<String, SyncFileInfo>();
-		for (WikiPage p : mHelper.getDal().fetchAll()) {
-			SyncFileInfo fi = new SyncFileInfo(p.getFile(), mSyncMetadata,
-					mLocalDir);
-			files.put(fi.getName(), fi);
+		for (WikiPage p : activityHelper.getPagesFiles().fetchAll()) {
+			SyncFileInfo fileInfo = new SyncFileInfo(p.getFile(), syncMetadata,
+					localDir);
+			files.put(fileInfo.getName(), fileInfo);
 		}
 
 		if (syncDir.contents != null) {
 			// add info for remote files
-			for (Entry f : syncDir.contents) {
-				if (f.isDir) {
+			for (Entry dirEntry : syncDir.contents) {
+				if (dirEntry.isDir) {
 					// skip dirs
 					continue;
 				}
 
-				SyncFileInfo fi;
-				if (files.containsKey(f.fileName())) {
-					fi = files.get(f.fileName());
+				SyncFileInfo fileInfo;
+				if (files.containsKey(dirEntry.fileName())) {
+					fileInfo = files.get(dirEntry.fileName());
 				} else {
-					File newFile = new File(mLocalDir, f.fileName());
-					fi = new SyncFileInfo(newFile, mSyncMetadata, mLocalDir);
-					files.put(fi.getName(), fi);
+					File newFile = new File(localDir, dirEntry.fileName());
+					fileInfo = new SyncFileInfo(newFile, syncMetadata, localDir);
+					files.put(fileInfo.getName(), fileInfo);
 				}
-				fi.setRemoteFile(f);
+				fileInfo.setRemoteFile(dirEntry);
 			}
 		}
 
@@ -107,23 +110,23 @@ public class Sync {
 
 		boolean syncedSomething = false;
 		// do sync for all files
-		for (SyncFileInfo fi : files.values()) {
+		for (SyncFileInfo fileInfo : files.values()) {
 			count++;
 			showProgress(totalFiles, count);
 
-			if (fi.needsUpload()) {
+			if (fileInfo.needsUpload()) {
 
-				Entry syncedFile = mApi.putFile(syncDir.path, fi.getFile());
+				Entry syncedFile = dropboxApi.putFile(syncDir.path, fileInfo.getFile());
 
 				// update local sync info
-				fi.updatedRemote(syncedFile);
+				fileInfo.updatedRemote(syncedFile);
 				syncedSomething = true;
 
-			} else if (fi.needsDownload()) {
+			} else if (fileInfo.needsDownload()) {
 
-				mApi.getFile(syncDir.path, fi.getFile());
+				dropboxApi.getFile(syncDir.path, fileInfo.getFile());
 
-				fi.updatedLocal();
+				fileInfo.updatedLocal();
 
 				syncedSomething = true;
 
@@ -136,35 +139,36 @@ public class Sync {
 
 	private void showProgress(int totalFiles, int count) {
 		Message updateMessage = new Message();
-		updateMessage.obj = mHelper.getContext()
+		updateMessage.obj = activityHelper.getContext()
 				.getText(R.string.synchronizing).toString();
 		updateMessage.arg1 = (int) ((((double) count) / ((double) totalFiles)) * 100);
-		mProgressUpdateHandler.sendMessage(updateMessage);
+		progressUpdateHandler.sendMessage(updateMessage);
 	}
 
 	private void updateSyncInfo(Map<String, SyncFileInfo> files)
 			throws IOException {
 
 		try {
-			mSyncMetadata = new JSONObject();
+			syncMetadata = new JSONObject();
 			JSONArray filesArray = new JSONArray();
 
 			for (SyncFileInfo file : files.values()) {
 				filesArray.put(file.getJSON());
 			}
 
-			mSyncMetadata.put("files", filesArray);
+			syncMetadata.put("files", filesArray);
 
-			File syncMetadataFile = new File(mLocalDir, METADATA_FILE);
+			File syncMetadataFile = new File(localDir, METADATA_FILE);
 			BufferedWriter bw = null;
 			try {
 				bw = new BufferedWriter(new FileWriter(syncMetadataFile), 4096);
-				bw.write(mSyncMetadata.toString(2));
+				bw.write(syncMetadata.toString(2));
 			} finally {
 				if (bw != null) {
 					try {
 						bw.close();
 					} catch (Exception e) {
+						Log.e("Sync", e.getMessage()+" on "+syncMetadataFile.getAbsolutePath());
 					}
 				}
 			}

@@ -9,7 +9,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-public class FileStuff {
+import android.util.Log;
+
+public class FileIO {
 
 	public static final String ENCODING = "UTF-8";
 	public static final int BUFFER_SIZE = 8192;
@@ -27,6 +29,7 @@ public class FileStuff {
 				try {
 					bw.close();
 				} catch (IOException e) {
+					Log.e("FileIO", e.getMessage()+" on "+f.getAbsolutePath());
 				}
 				bw = null;
 			}
@@ -57,6 +60,7 @@ public class FileStuff {
 				try {
 					br.close();
 				} catch (IOException e) {
+					Log.e("FileIO", e.getMessage()+" on "+f.getAbsolutePath());
 				}
 
 				br = null;

@@ -6,55 +6,57 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 public class ThikiActivityHelper {
 
-	private PagesDal mDal;
-	private Context mCtx;
-	private Handler mToastHandler;
+	private PagesFiles pagesFiles;
+	private Context context;
+	private Handler toastHandler;
 
 	public ThikiActivityHelper(Context ctx) {
-		mCtx = ctx;
+		context = ctx;
 		
-		mToastHandler = new Handler() {
+		toastHandler = new Handler() {
 			@Override
 			public void handleMessage(Message msg) {
 				CharSequence cs = (CharSequence) msg.obj;
-				Toast.makeText(mCtx, cs, Toast.LENGTH_LONG).show();
+				Toast.makeText(context, cs, Toast.LENGTH_LONG).show();
 			}
 		};
 
 		try {
-			mDal = new PagesDal(ctx);
+			pagesFiles = new PagesFiles(ctx);
 		} catch (IOException e) {
 			showToast("Error initializing Thiki Wiki", e);
+			Log.w("ThikiActivityHelper", "Error initializing "+e.getMessage());
 		}
 
 	}
 
 	public boolean isInitialized() {
-		return mDal != null;
+		return pagesFiles != null;
 	}
 
-	public PagesDal getDal() {
-		return mDal;
+	public PagesFiles getPagesFiles() {
+		return pagesFiles;
 	}
 
 	public void showToast(int r) {
-		showToast(mCtx.getText(r));
+		showToast(context.getText(r));
 	}
 	
 	@SuppressWarnings("unchecked")
 	public <T extends View> T find(int id) {
-		return (T) ((Activity)mCtx).findViewById(id);
+		return (T) ((Activity)context).findViewById(id);
 	}
 
 	public void showToast(CharSequence message) {
 		Message msg = new Message();
 		msg.obj = message;
-		mToastHandler.sendMessage(msg);
+		toastHandler.sendMessage(msg);
 	}
 
 	public void showToast(CharSequence message, Exception ex) {
@@ -67,6 +69,6 @@ public class ThikiActivityHelper {
 	}
 
 	public Context getContext() {
-		return mCtx;
+		return context;
 	}
 }

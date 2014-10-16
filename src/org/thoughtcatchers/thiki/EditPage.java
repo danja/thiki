@@ -9,6 +9,7 @@ import org.thoughtcatchers.thiki.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,15 +21,15 @@ public class EditPage extends Activity {
 	public final static String TITLE_KEY = "EditPage.Title";
 	private final static int SAVE_INTERVAL_SECONDS = 10;
 
-	private ThikiActivityHelper  mHelper;
-	private String mPageTitle;
+	private ThikiActivityHelper  activityHelper;
+	private String pageTitle;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.edit_page);
 		
-		mHelper = new ThikiActivityHelper(this);
+		activityHelper = new ThikiActivityHelper(this);
 
 		// try to populate from saved state
 		if (!populate(savedInstanceState)) {
@@ -57,16 +58,16 @@ public class EditPage extends Activity {
 	@Override
 	protected void onStop() {
 		super.onStop();
-		mAutoSaveTimer.cancel();
+		autosaveTimer.cancel();
 	}
 	
-	Timer mAutoSaveTimer;
+	Timer autosaveTimer;
 	/*
 	 * start timer that saves the note periodically
 	 */
 	private void startTimer() {
-		mAutoSaveTimer = new Timer();
-		mAutoSaveTimer.scheduleAtFixedRate(new TimerTask() {
+		autosaveTimer = new Timer();
+		autosaveTimer.scheduleAtFixedRate(new TimerTask() {
 			
 			@Override
 			public void run() {
@@ -80,8 +81,8 @@ public class EditPage extends Activity {
 			return false;
 		}
 
-		mPageTitle = b.getString(TITLE_KEY);
-		if (mPageTitle == null || mPageTitle.length() == 0) {
+		pageTitle = b.getString(TITLE_KEY);
+		if (pageTitle == null || pageTitle.length() == 0) {
 			return false;
 		}
 		return populate();
@@ -90,7 +91,7 @@ public class EditPage extends Activity {
 	private boolean populate() {
 		String pageBody;
 
-		WikiPage page = mHelper.getDal().fetchByName(mPageTitle);
+		WikiPage page = activityHelper.getPagesFiles().fetchByName(pageTitle);
 		try {
 			pageBody = page.getBody();
 		} catch (IOException e) {
@@ -98,13 +99,14 @@ public class EditPage extends Activity {
 					this,
 					getText(R.string.page_error) + "\n"
 							+ e.getLocalizedMessage(), Toast.LENGTH_LONG);
+			Log.w("EditPage", e.getMessage());
 			return false;
 		}
 
 		TextView title = (TextView) findViewById(R.id.page_title);
 		EditText body = (EditText) findViewById(R.id.page_body);
 
-		title.setText(mPageTitle);
+		title.setText(pageTitle);
 		if (pageBody != null) {
 			body.setText(pageBody);
 		}
@@ -127,12 +129,13 @@ public class EditPage extends Activity {
 		EditText body = (EditText) findViewById(R.id.page_body);
 
 		try {
-			mHelper.getDal().savePage(mPageTitle, body.getText().toString());
+			activityHelper.getPagesFiles().savePage(pageTitle, body.getText().toString());
 		} catch (IOException e) {
 			Toast.makeText(
 					this,
 					getText(R.string.save_error) + "\n"
 							+ e.getLocalizedMessage(), Toast.LENGTH_LONG);
+			Log.w("EditPage", e.getMessage());
 		}
 	}
 	
@@ -152,7 +155,7 @@ public class EditPage extends Activity {
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		save();
-		outState.putString(TITLE_KEY, mPageTitle);
+		outState.putString(TITLE_KEY, pageTitle);
 		super.onSaveInstanceState(outState);
 	}
 

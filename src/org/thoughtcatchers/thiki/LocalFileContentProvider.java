@@ -16,7 +16,7 @@ public class LocalFileContentProvider extends ContentProvider {
    @Override
    public ParcelFileDescriptor openFile(Uri uri, String mode) throws FileNotFoundException {
 	   //URI localUri = URI.create("file://" + );
-       File file = new File(new ThikiActivityHelper(getContext()).getDal().Dir() + uri.getPath());
+       File file = new File(new ThikiActivityHelper(getContext()).getPagesFiles().Dir() + uri.getPath());
 
        ParcelFileDescriptor parcel = ParcelFileDescriptor.open(file, ParcelFileDescriptor.MODE_READ_ONLY);
        return parcel;

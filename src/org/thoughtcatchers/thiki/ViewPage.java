@@ -18,6 +18,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -43,31 +44,31 @@ public class ViewPage extends Activity {
 	private static final int LIST_PAGES = 1;
 	private static final int LOGIN = 2;
 
-	private ThikiActivityHelper mHelper;
-	private int mActiveWebview = 0;
-	private boolean mHasCustomTitle;
-	private boolean mIgnoreBrowserUpdate;
-	private String mCustomWindowTitle;
-	private Stack<ViewPageCommand> mHistory;
-	private boolean mNotABadTimeForASync = false;
-	private SyncPrefs mSyncPrefs;
-	private boolean mSyncRequestedByUser = false;
-	private Handler mRefreshHandler;
-	private Lock mRefreshLock = new ReentrantLock();
-	private DropboxAuthentication mDropboxAuthentication;
+	private ThikiActivityHelper activityHelper;
+	private int activeWebview = 0;
+	private boolean hasCustomTitle;
+	private boolean ignoreBrowserUpdate;
+	private String customWindowTitle;
+	private Stack<ViewPageCommand> history;
+	private boolean notABadTimeForASync = false;
+	private SyncPrefs syncPrefs;
+	private boolean syncRequestedByUser = false;
+	private Handler refreshHandler;
+	private Lock refreshLock = new ReentrantLock();
+	private DropboxAuthentication dropboxAuthentication;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		mHelper = new ThikiActivityHelper(this);
-		if (!mHelper.isInitialized()) {
+		activityHelper = new ThikiActivityHelper(this);
+		if (!activityHelper.isInitialized()) {
 			finish();
 			return;
 		}
-		mSyncPrefs = new SyncPrefs(this);
+		syncPrefs = new SyncPrefs(this);
 
-		mHasCustomTitle = requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+		hasCustomTitle = requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 
 		setContentView(R.layout.view_page);
 		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
@@ -105,14 +106,14 @@ public class ViewPage extends Activity {
 
 		setClickListenerOn(R.id.button_sync, new View.OnClickListener() {
 			public void onClick(View v) {
-				mSyncRequestedByUser = true;
-				mNotABadTimeForASync = true;
+				syncRequestedByUser = true;
+				notABadTimeForASync = true;
 			}
 		});
 	}
 
 	private void setClickListenerOn(int buttonId, View.OnClickListener listener) {
-		Button b = mHelper.find(buttonId);
+		Button b = activityHelper.find(buttonId);
 		if (b == null)
 			return;
 
@@ -120,50 +121,50 @@ public class ViewPage extends Activity {
 	}
 
 	private void setTitleCustom(String titleText) {
-		if (mHasCustomTitle) {
-			TextView title = mHelper.find(R.id.title);
+		if (hasCustomTitle) {
+			TextView title = activityHelper.find(R.id.title);
 			title.setText(titleText);
 		} else {
-			mCustomWindowTitle = titleText;
+			customWindowTitle = titleText;
 			setTitle(titleText);
 		}
 	}
 
 	private void showStatus(String message, int progressPct) {
-		if (mHasCustomTitle) {
-			TextView msg = mHelper.find(R.id.title_message);
+		if (hasCustomTitle) {
+			TextView titleMessage = activityHelper.find(R.id.title_message);
 			if (message.length() > 20) {
 				message = message.substring(0, 19);
 			}
-			msg.setText(message);
-			msg.setVisibility(TextView.VISIBLE);
+			titleMessage.setText(message);
+			titleMessage.setVisibility(TextView.VISIBLE);
 
 			ProgressBar titleProgressBar = (ProgressBar) findViewById(R.id.title_progressbar);
 			titleProgressBar.setVisibility(ProgressBar.VISIBLE);
 			titleProgressBar.setMax(100);
 			titleProgressBar.setProgress(progressPct);
 		} else {
-			setTitle(mCustomWindowTitle + " " + message + " " + progressPct
+			setTitle(customWindowTitle + " " + message + " " + progressPct
 					+ "%");
 		}
 	}
 
 	private void hideStatus() {
-		if (mHasCustomTitle) {
-			TextView msg = mHelper.find(R.id.title_message);
-			msg.setText("");
-			ProgressBar titleProgressBar = mHelper.find(R.id.title_progressbar);
+		if (hasCustomTitle) {
+			TextView titleMessage = activityHelper.find(R.id.title_message);
+			titleMessage.setText("");
+			ProgressBar titleProgressBar = activityHelper.find(R.id.title_progressbar);
 			titleProgressBar.setVisibility(ProgressBar.GONE);
-			msg.setVisibility(TextView.GONE);
+			titleMessage.setVisibility(TextView.GONE);
 		} else {
-			setTitle(mCustomWindowTitle);
+			setTitle(customWindowTitle);
 		}
 	}
 
 	private void initializeLocals() {
-		mHistory = new Stack<ViewPageCommand>();
+		history = new Stack<ViewPageCommand>();
 
-		mRefreshHandler = new Handler() {
+		refreshHandler = new Handler() {
 			@Override
 			public void handleMessage(Message msg) {
 				rememberScrollPos();
@@ -174,18 +175,18 @@ public class ViewPage extends Activity {
 
 	private WebView getWebView(int which) {
 		if (which == 0) {
-			return mHelper.find(R.id.webview0);
+			return activityHelper.find(R.id.webview0);
 		} else {
-			return mHelper.find(R.id.webview1);
+			return activityHelper.find(R.id.webview1);
 		}
 	}
 
 	private WebView getWebView() {
-		return getWebView(mActiveWebview);
+		return getWebView(activeWebview);
 	}
 
 	private WebView getInvisibleWebView() {
-		int otherView = mActiveWebview == 0 ? 1 : 0;
+		int otherView = activeWebview == 0 ? 1 : 0;
 		return getWebView(otherView);
 	}
 
@@ -208,8 +209,8 @@ public class ViewPage extends Activity {
 			@Override
 			public void onPageFinished(WebView view, String url) {
 				super.onPageFinished(view, url);
-				if (mIgnoreBrowserUpdate) {
-					mIgnoreBrowserUpdate = false;
+				if (ignoreBrowserUpdate) {
+					ignoreBrowserUpdate = false;
 				} else {
 					restoreScrollPosAndShowBrowser();
 				}
@@ -262,8 +263,8 @@ public class ViewPage extends Activity {
 		};
 
 		// do the initial sync?
-		if (mSyncPrefs.getOnStartup()) {
-			mNotABadTimeForASync = true;
+		if (syncPrefs.getOnStartup()) {
+			notABadTimeForASync = true;
 		}
 
 		// start a synchronization thread
@@ -274,46 +275,47 @@ public class ViewPage extends Activity {
 						// sleep in batches of 1000 milliseconds, so it is
 						// easier to interrupt by the "Not A Bad Time" trigger
 						int seconds = 0;
-						while (seconds < mSyncPrefs.getIntervalMinutes() * 60) {
+						while (seconds < syncPrefs.getIntervalMinutes() * 60) {
 							Thread.sleep(1000);
 
 							// can loop be broken by the timer?
-							if (mSyncPrefs.getPeriodically()) {
+							if (syncPrefs.getPeriodically()) {
 								seconds++;
 							}
 
-							if (mNotABadTimeForASync) {
+							if (notABadTimeForASync) {
 								break;
 							}
 						}
 
-						if (mDropboxAuthentication == null) {
-							mDropboxAuthentication = new DropboxAuthentication(ViewPage.this);
+						if (dropboxAuthentication == null) {
+							dropboxAuthentication = new DropboxAuthentication(ViewPage.this);
 						}
 
-						if (!mDropboxAuthentication.getIsAuthenticated()) {
-							if (mSyncRequestedByUser) {
-								mSyncRequestedByUser = false;
-								mHelper.showToast(getText(R.string.provide_credentials));
+						if (!dropboxAuthentication.isAuthenticated()) {
+							if (syncRequestedByUser) {
+								syncRequestedByUser = false;
+								activityHelper.showToast(getText(R.string.provide_credentials));
 							}
 							continue;
 						}
-						mSyncRequestedByUser = false;
+						syncRequestedByUser = false;
 
-						Sync sync = new Sync(mHelper, mDropboxAuthentication
+						Sync sync = new Sync(activityHelper, dropboxAuthentication
 								.getAPI());
 						sync.setStatusHandler(syncProgressHandler);
 						if (sync.perform()) {
 							// -there was a change-
-							mRefreshHandler.sendEmptyMessage(0);
+							refreshHandler.sendEmptyMessage(0);
 						}
 						hideStatusHandler.sendEmptyMessage(0);
 
 					} catch (Exception e) {
 						// show sync error
-						mHelper.showToast(getText(R.string.syncError), e);
+						activityHelper.showToast(getText(R.string.syncError), e);
+						Log.w("ViewPage", e.getMessage());
 					} finally {
-						mNotABadTimeForASync = false;
+						notABadTimeForASync = false;
 					}
 				}
 			}
@@ -333,25 +335,25 @@ public class ViewPage extends Activity {
 
 		double scrollPos = b.getDouble(SCROLLPOS_KEY);
 
-		mHistory.push(new ViewPageCommand(pageTitle, scrollPos));
+		history.push(new ViewPageCommand(pageTitle, scrollPos));
 
 		showOrRefreshCurrentPage();
 		return true;
 	}
 
 	private ViewPageCommand currentPage() {
-		if (mHistory.empty()) {
-			mHistory.add(new ViewPageCommand(WikiPage.DEFAULT_PAGE));
+		if (history.empty()) {
+			history.add(new ViewPageCommand(WikiPage.DEFAULT_PAGE));
 		}
 
-		return mHistory.peek();
+		return history.peek();
 	}
 
 	private void loadUrlWithHistory(String pageName) {
 		if (currentPage().PageName != pageName) {
 			rememberScrollPos(); // for current page that very soon is not the
 									// current page any longer
-			mHistory.push(new ViewPageCommand(pageName));
+			history.push(new ViewPageCommand(pageName));
 		}
 		showOrRefreshCurrentPage();
 	}
@@ -361,18 +363,18 @@ public class ViewPage extends Activity {
 		System.out.println(message);
 	}
 
-	private boolean mInRefresh = false;
+	private boolean inRefresh = false;
 
 	private void showOrRefreshCurrentPage() {
 		// log("Requesting lock...");
-		mRefreshLock.lock();
+		refreshLock.lock();
 		// log("in lock");
-		if (mInRefresh) {
+		if (inRefresh) {
 			// log("a refresh action is already taking place, returning.");
 			return;
 		}
-		mInRefresh = true;
-		mRefreshLock.unlock();
+		inRefresh = true;
+		refreshLock.unlock();
 
 		final ViewPageCommand currentPage = currentPage();
 		setTitleCustom(currentPage.PageName);
@@ -381,24 +383,25 @@ public class ViewPage extends Activity {
 		// do time-consuming things asynchronously
 		new Thread(new Runnable() {
 			public void run() {
-				WikiPage page = mHelper.getDal().fetchByName(
+				WikiPage page = activityHelper.getPagesFiles().fetchByName(
 						currentPage.PageName);
 
 				String htmlBody = "";
 				try {
 					htmlBody = page.getHtmlBody();
 				} catch (IOException e) {
-					mHelper.showToast(getText(R.string.page_error), e);
+					activityHelper.showToast(getText(R.string.page_error), e);
+					Log.w("ViewPage", e.getMessage());
 					return;
 				}
 
 				htmlBody = htmlBody.replaceAll("thikifile\\:",
 						"content://org.thoughtcatchers.thiki.localfile/");
 
-				// log("Loading html in view " + mActiveWebview);
+				// log("Loading html in view " + activeWebview);
 				getInvisibleWebView().loadDataWithBaseURL("fake://i/will/smack/the/engineer/behind/this/scheme", 
 						htmlBody, "text/html",
-						FileStuff.ENCODING, "");
+						FileIO.ENCODING, "");
 				// will be made visible in the onpageload eventhandler
 			}
 		}).start();
@@ -428,18 +431,18 @@ public class ViewPage extends Activity {
 
 					invisibleWv.scrollTo(0, posReloaded);
 
-					// log("set invisible: " + mActiveWebview);
+					// log("set invisible: " + activeWebview);
 					invisibleWv.setVisibility(View.VISIBLE);
 					invisibleWv.setEnabled(true);
 					visibleWv.setVisibility(View.GONE);
-					mIgnoreBrowserUpdate = true;
-					visibleWv.loadData("", "text/plain", FileStuff.ENCODING);
-					mActiveWebview = mActiveWebview == 0 ? 1 : 0;
-					// log("set visible: " + mActiveWebview);
+					ignoreBrowserUpdate = true;
+					visibleWv.loadData("", "text/plain", FileIO.ENCODING);
+					activeWebview = activeWebview == 0 ? 1 : 0;
+					// log("set visible: " + activeWebview);
 				} finally {
-					mRefreshLock.lock();
-					mInRefresh = false;
-					mRefreshLock.unlock();
+					refreshLock.lock();
+					inRefresh = false;
+					refreshLock.unlock();
 					// log("released lock");
 				}
 			}
@@ -453,6 +456,7 @@ public class ViewPage extends Activity {
 					try {
 						Thread.sleep(100);
 					} catch (InterruptedException ex) {
+						Log.w("ViewPage", ex.getMessage());
 					}
 					restoreScrollPosHandler.sendEmptyMessage(0);
 				}
@@ -470,18 +474,19 @@ public class ViewPage extends Activity {
 		new Thread(new Runnable() {
 			public void run() {
 				try {
-					mHelper.getDal().toggleCheckbox(page, whichOne);
+					activityHelper.getPagesFiles().toggleCheckbox(page, whichOne);
 
 					// do not refresh the browser here, because this looks very
 					// slow
 					// instead, the browser will assume a way to show the change
 					// itself.
 
-					if (mSyncPrefs.getAfterEdit()) {
-						mNotABadTimeForASync = true;
+					if (syncPrefs.getAfterEdit()) {
+						notABadTimeForASync = true;
 					}
 				} catch (IOException e) {
-					mHelper.showToast(getText(R.string.save_error), e);
+					activityHelper.showToast(getText(R.string.save_error), e);
+					Log.w("ViewPage", e.getMessage());
 				}
 			}
 		}).start();
@@ -495,7 +500,7 @@ public class ViewPage extends Activity {
 			return;
 		}
 
-		mHistory.pop();
+		history.pop();
 		showOrRefreshCurrentPage();
 	}
 
@@ -511,6 +516,7 @@ public class ViewPage extends Activity {
 		try {
 			startActivityForResult(i, EDIT_PAGE);
 		} catch (RuntimeException e) {
+			Log.e("ViewPage", e.getMessage());
 			System.out.println(e.toString());
 			throw e;
 		}
@@ -523,8 +529,8 @@ public class ViewPage extends Activity {
 		switch (requestCode) {
 		case EDIT_PAGE:
 			showOrRefreshCurrentPage();
-			if (mSyncPrefs.getAfterEdit()) {
-				mNotABadTimeForASync = true;
+			if (syncPrefs.getAfterEdit()) {
+				notABadTimeForASync = true;
 			}
 			return;
 
@@ -536,10 +542,10 @@ public class ViewPage extends Activity {
 			break;
 
 		case LOGIN:
-			if (mDropboxAuthentication != null) {
-				mDropboxAuthentication.reInitialize();
+			if (dropboxAuthentication != null) {
+				dropboxAuthentication.reInitialize();
 			}
-			mNotABadTimeForASync = true;
+			notABadTimeForASync = true;
 			break;
 
 		}
@@ -566,7 +572,7 @@ public class ViewPage extends Activity {
 		// normal url, leave it to the system in an external activity
 		// replace replaced links
 		url = url.replaceAll("content://org.thoughtcatchers.thiki.localfile/",
-				"file://" + mHelper.getDal().Dir().getAbsolutePath() + "/");
+				"file://" + activityHelper.getPagesFiles().Dir().getAbsolutePath() + "/");
 
 		boolean isFile = url.startsWith("file://");
 
@@ -586,7 +592,8 @@ public class ViewPage extends Activity {
 		try {
 			startActivity(intent);
 		} catch (ActivityNotFoundException e) {
-			mHelper.showToast(R.string.unknownMimetype);
+			activityHelper.showToast(R.string.unknownMimetype);
+			Log.w("ViewPage", e.getMessage());
 		}
 		return true;
 	}

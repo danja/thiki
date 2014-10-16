@@ -16,16 +16,20 @@ public class DropboxAuthentication {
 	final static private String APP_SECRET = "9lprvbdkua4hfby"; 
 	final static private AccessType ACCESS_TYPE = AccessType.DROPBOX;
 
-	final static public String ACCOUNT_PREFS_NAME = "Ema.DropboxAccount";
-	final static public String ACCESS_KEY_NAME = "Ema.Dropbox.Key";
-	final static public String ACCESS_SECRET_NAME = "Ema.Dropbox.Secret";
+	final static public String ACCOUNT_PREFS_NAME = "Thiki.DropboxAccount";
+	final static public String ACCESS_KEY_NAME = "Thiki.Dropbox.Key";
+	final static public String ACCESS_SECRET_NAME = "Thiki.Dropbox.Secret";
 
-	private DropboxAPI<AndroidAuthSession> mDBApi;
-	private Context mContext;
-	private boolean mIsAuthenticated;
+//	final static public String ACCOUNT_PREFS_NAME = "Ema.DropboxAccount";
+//	final static public String ACCESS_KEY_NAME = "Ema.Dropbox.Key";
+//	final static public String ACCESS_SECRET_NAME = "Ema.Dropbox.Secret";
+	
+	private DropboxAPI<AndroidAuthSession> dropboxApiSession;
+	private Context context;
+	private boolean isAuthenticated;
 
 	public DropboxAuthentication(Context ctx) {
-		mContext = ctx;
+		context = ctx;
 		
 		initialize();
 	}
@@ -41,8 +45,8 @@ public class DropboxAuthentication {
 			session = new AndroidAuthSession(appKeys, ACCESS_TYPE);
 		}
 		
-		mDBApi = new DropboxAPI<AndroidAuthSession>(session);
-		mIsAuthenticated = mDBApi.getSession().isLinked();
+		dropboxApiSession = new DropboxAPI<AndroidAuthSession>(session);
+		isAuthenticated = dropboxApiSession.getSession().isLinked();
 	}
 
 	public void reInitialize() {
@@ -51,15 +55,15 @@ public class DropboxAuthentication {
 	
 	// start authentication; will return to onResume on the context
 	public void startAuthentication() {
-		mDBApi.getSession().startAuthentication(mContext);
+		dropboxApiSession.getSession().startAuthentication(context);
 	}
 
 	public DropboxWrapper getAPI() {
-		return new DropboxWrapper(mDBApi);
+		return new DropboxWrapper(dropboxApiSession);
 	}
 
 	private AccessTokenPair getStoredKeys() {
-		SharedPreferences prefs = mContext.getSharedPreferences(
+		SharedPreferences prefs = context.getSharedPreferences(
 				ACCOUNT_PREFS_NAME, 0);
 		String key = prefs.getString(ACCESS_KEY_NAME, null);
 		String secret = prefs.getString(ACCESS_SECRET_NAME, null);
@@ -72,7 +76,7 @@ public class DropboxAuthentication {
 
 	private void storeKeys(String key, String secret) {
 		// Save the access key for later
-		SharedPreferences prefs = mContext.getSharedPreferences(
+		SharedPreferences prefs = context.getSharedPreferences(
 				ACCOUNT_PREFS_NAME, 0);
 		Editor edit = prefs.edit();
 		edit.putString(ACCESS_KEY_NAME, key);
@@ -82,38 +86,38 @@ public class DropboxAuthentication {
 
 	public void logout() {
 		clearKeys();
-		mIsAuthenticated = false;
-		mDBApi.getSession().unlink();
+		isAuthenticated = false;
+		dropboxApiSession.getSession().unlink();
 	}
 
 	private void clearKeys() {
-		SharedPreferences prefs = mContext.getSharedPreferences(
+		SharedPreferences prefs = context.getSharedPreferences(
 				ACCOUNT_PREFS_NAME, 0);
 		Editor edit = prefs.edit();
 		edit.clear();
 		edit.commit();
 	}
 
-	public boolean getIsAuthenticated() {
-		return mIsAuthenticated;
+	public boolean isAuthenticated() {
+		return isAuthenticated;
 	}
 
 	public void authenticationFinished() {
-		mIsAuthenticated = false;
+		isAuthenticated = false;
 
-		if (mDBApi.getSession().authenticationSuccessful()) {
+		if (dropboxApiSession.getSession().authenticationSuccessful()) {
 			try {
 				// MANDATORY call to complete auth.
 				// Sets the access token on the session
-				mDBApi.getSession().finishAuthentication();
+				dropboxApiSession.getSession().finishAuthentication();
 
-				AccessTokenPair tokens = mDBApi.getSession().getAccessTokenPair();
+				AccessTokenPair tokens = dropboxApiSession.getSession().getAccessTokenPair();
 
-				mIsAuthenticated = true;
+				isAuthenticated = true;
 				storeKeys(tokens.key, tokens.secret);
 
 			} catch (IllegalStateException e) {
-				mIsAuthenticated = false;
+				isAuthenticated = false;
 			}
 		}
 

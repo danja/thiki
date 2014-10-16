@@ -9,34 +9,34 @@ import java.util.TreeMap;
 import java.util.regex.Matcher;
 
 import org.apache.commons.io.FileUtils;
-
 import org.thoughtcatchers.thiki.R;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Environment;
+import android.util.Log;
 
-public class PagesDal {
+public class PagesFiles {
 
-	private File mFilesDir;
-	private Context mCtx;
+	private File filesDir;
+	private Context context;
 
-	public PagesDal(Context ctx) throws IOException {
-		mCtx = ctx;
+	public PagesFiles(Context ctx) throws IOException {
+		context = ctx;
 
 		if (!Environment.getExternalStorageState().equals(
 				Environment.MEDIA_MOUNTED)) {
-			throw new IOException(mCtx.getText(R.string.storage_not_accessible)
+			throw new IOException(context.getText(R.string.storage_not_accessible)
 					.toString());
 		}
 
-		mFilesDir = new File(Environment.getExternalStorageDirectory(),
-				"ThoughtCatcher"); // mCtx.getExternalFilesDir(null);
+		filesDir = new File(Environment.getExternalStorageDirectory(),
+				"ThoughtCatcher"); // context.getExternalFilesDir(null);
 		
-		boolean isNewInstallation = !mFilesDir.exists();
-		mFilesDir.mkdir();
-		if (!mFilesDir.exists()) {
-			throw new IOException(mCtx.getText(
+		boolean isNewInstallation = !filesDir.exists();
+		filesDir.mkdir();
+		if (!filesDir.exists()) {
+			throw new IOException(context.getText(
 					R.string.storage_dir_creation_failed).toString());
 		}
 
@@ -45,13 +45,13 @@ public class PagesDal {
 		createAndReadCss();
 
 		// set default content for default page
-		WikiPage.defaultPageDefaultContent = ctx.getText(
+		WikiPage.defaultPageDefaultContent = context.getText(
 				R.string.default_page_text).toString();
-		WikiPage.aboutPageContent = ctx.getText(R.string.about_text).toString();
+		WikiPage.aboutPageContent = context.getText(R.string.about_text).toString();
 	}
 
 	private void createBackup(String version, boolean isNewInstallation) throws IOException {
-		File signalFile = new File(mFilesDir, "v" + version + ".flg");
+		File signalFile = new File(filesDir, "v" + version + ".flg");
 		if (signalFile.exists()) {
 			return;
 		}
@@ -60,7 +60,7 @@ public class PagesDal {
 			return;
 		}
 		
-		File newDir = new File(mFilesDir.getAbsolutePath() + "-backup-v"
+		File newDir = new File(filesDir.getAbsolutePath() + "-backup-v"
 				+ version);
 		if (newDir.exists()) {
 			return;
@@ -68,45 +68,45 @@ public class PagesDal {
 
 		newDir.mkdir();
 
-		FileUtils.copyDirectory(mFilesDir, newDir);
+		FileUtils.copyDirectory(filesDir, newDir);
 		signalFile.createNewFile();
 		
-		AlertDialog ad = new AlertDialog.Builder(mCtx).create();
+		AlertDialog ad = new AlertDialog.Builder(context).create();
 		ad.setTitle(R.string.v2_update_title);
-		ad.setMessage(mCtx.getText(R.string.v2_update_text));
+		ad.setMessage(context.getText(R.string.v2_update_text));
 		ad.show();
 	}
 
 	public File Dir() {
-		return mFilesDir;
+		return filesDir;
 	}
 
 	private void createAndReadCss() {
 		// create default stylesheet if not present
-		File css = new File(mFilesDir, "style.css");
+		File css = new File(filesDir, "style.css");
 
 		if (!css.exists()) {
 			try {
-				FileStuff
+				FileIO
 						.writeContents(
 								css,
 								"body {\npadding-bottom: 50px; \n}\n.thiki-task-finished {\n  text-decoration: line-through;\n}");
 			} catch (IOException e) {
-				// too bad, but not fatal
+				Log.w("PagesFiles", e.getMessage());
 			}
 		}
 
 		if (css.exists()) {
 			try {
-				WikiPage.css = FileStuff.readContents(css);
+				WikiPage.css = FileIO.readContents(css);
 			} catch (IOException e) {
-				// too bad
+				Log.w("PagesFiles", e.getMessage());
 			}
 		}
 	}
 
 	public Collection<WikiPage> fetchAll() {
-		File[] files = mFilesDir.listFiles(new FilenameFilter() {
+		File[] files = filesDir.listFiles(new FilenameFilter() {
 			public boolean accept(File dir, String filename) {
 
 				if (filename.toLowerCase().endsWith(WikiPage.EXT)) {
@@ -135,7 +135,7 @@ public class PagesDal {
 
 	private File getFileForPage(String pageName) {
 		pageName = pageName.replaceAll("[^\\w\\.\\-]", "_");
-		return new File(mFilesDir, pageName + WikiPage.EXT);
+		return new File(filesDir, pageName + WikiPage.EXT);
 	}
 
 	/*
@@ -154,7 +154,7 @@ public class PagesDal {
 	public void savePage(String name, String body) throws IOException {
 		File page = getFileForPage(name);
 
-		FileStuff.writeContents(page, body);
+		FileIO.writeContents(page, body);
 	}
 
 	public void toggleCheckbox(String pageTitle, int whichOne)

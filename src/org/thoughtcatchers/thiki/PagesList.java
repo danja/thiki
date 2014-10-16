@@ -11,6 +11,7 @@ import org.thoughtcatchers.thiki.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuInflater;
@@ -27,8 +28,8 @@ public class PagesList extends Activity {
 
 	private static final int REQUEST_NEWPAGENAME = 0;
 
-	private ThikiActivityHelper mHelper;
-	private ListView mListView;
+	private ThikiActivityHelper activityHelper;
+	private ListView listView;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -36,10 +37,10 @@ public class PagesList extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.pageslist);
 
-		mHelper = new ThikiActivityHelper(this);
-		mListView = mHelper.find(R.id.listview);
+		activityHelper = new ThikiActivityHelper(this);
+		listView = activityHelper.find(R.id.listview);
 
-		registerForContextMenu(mListView);
+		registerForContextMenu(listView);
 		setTitle(R.string.list_pages_long);
 
 		fillList();
@@ -55,7 +56,7 @@ public class PagesList extends Activity {
 			}
 		});
 
-		mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			public void onItemClick(AdapterView<?> l, View v, int position,
 					long id) {
 
@@ -76,17 +77,17 @@ public class PagesList extends Activity {
 
 		List<Map<String, String>> data = new ArrayList<Map<String, String>>();
 
-		for (WikiPage page : mHelper.getDal().fetchAll()) {
+		for (WikiPage page : activityHelper.getPagesFiles().fetchAll()) {
 			Map<String, String> fileInfo = new HashMap<String, String>();
 			fileInfo.put("Name", page.getName());
 			data.add(fileInfo);
 		}
 
-		TextView t = mHelper.find(R.id.empty);
+		TextView t = activityHelper.find(R.id.empty);
 
 		if (data.isEmpty()) {
 			t.setVisibility(TextView.VISIBLE);
-			mListView.setVisibility(ListView.GONE);
+			listView.setVisibility(ListView.GONE);
 			return;
 		}
 
@@ -97,7 +98,7 @@ public class PagesList extends Activity {
 
 		SimpleAdapter adapter = new SimpleAdapter(this, data,
 				R.layout.pageslist_item, from, to);
-		mListView.setAdapter(adapter);
+		listView.setAdapter(adapter);
 
 	}
 
@@ -116,10 +117,11 @@ public class PagesList extends Activity {
 	 */
 	private void createNewPage(String pageTitle) {
 		try {
-			mHelper.getDal().createNewPage(pageTitle);
+			activityHelper.getPagesFiles().createNewPage(pageTitle);
 			viewPage(pageTitle);
 		} catch (IOException e) {
-			mHelper.showToast(getText(R.string.save_error), e);
+			activityHelper.showToast(getText(R.string.save_error), e);
+			Log.w("PagesList", e.getMessage());
 		}
 	}
 
@@ -147,17 +149,18 @@ public class PagesList extends Activity {
 				.getMenuInfo();
 
 		@SuppressWarnings("unchecked")
-		Map<String, String> file = (Map<String, String>) mListView
+		Map<String, String> file = (Map<String, String>) listView
 				.getItemAtPosition(info.position);
 		String pageTitle = file.get("Name");
 
 		switch (item.getItemId()) {
 		case R.id.delete:
 			try {
-				mHelper.getDal().savePage(pageTitle, "");
+				activityHelper.getPagesFiles().savePage(pageTitle, "");
 				fillList();
 			} catch (IOException e) {
-				mHelper.showToast(R.string.save_error);
+				activityHelper.showToast(R.string.save_error);
+				Log.w("PagesLists", e.getMessage());
 			}
 			return true;
 
