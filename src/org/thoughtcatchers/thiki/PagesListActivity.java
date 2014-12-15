@@ -24,7 +24,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-public class PagesList extends Activity {
+public class PagesListActivity extends Activity {
 
 	private static final int REQUEST_NEWPAGENAME = 0;
 
@@ -107,7 +107,7 @@ public class PagesList extends Activity {
 	 * (continued in createNewPage)
 	 */
 	private void startCreateNewPage() {
-		Intent i = new Intent(this, NewPageName.class);
+		Intent i = new Intent(this, NewPageNameActivity.class);
 		startActivityForResult(i, REQUEST_NEWPAGENAME);
 	}
 
@@ -121,14 +121,14 @@ public class PagesList extends Activity {
 			viewPage(pageTitle);
 		} catch (IOException e) {
 			activityHelper.showToast(getText(R.string.save_error), e);
-			Log.w("PagesList", e.getMessage());
+			Log.w("PagesListActivity", e.getMessage());
 		}
 	}
 
 	private void viewPage(String pageTitle) {
 
 		Intent i = new Intent();
-		i.putExtra(ViewPage.TITLE_KEY, pageTitle);
+		i.putExtra(ViewPageActivity.TITLE_KEY, pageTitle);
 
 		setResult(RESULT_OK, i);
 		finish();

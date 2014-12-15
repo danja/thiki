@@ -16,9 +16,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class EditPage extends Activity {
+public class EditPageActivity extends Activity {
 
-	public final static String TITLE_KEY = "EditPage.Title";
+	public final static String TITLE_KEY = "EditPageActivity.Title";
 	private final static int SAVE_INTERVAL_SECONDS = 10;
 
 	private ThikiActivityHelper  activityHelper;
@@ -99,7 +99,7 @@ public class EditPage extends Activity {
 					this,
 					getText(R.string.page_error) + "\n"
 							+ e.getLocalizedMessage(), Toast.LENGTH_LONG);
-			Log.w("EditPage", e.getMessage());
+			Log.w("EditPageActivity", e.getMessage());
 			return false;
 		}
 
@@ -135,7 +135,7 @@ public class EditPage extends Activity {
 					this,
 					getText(R.string.save_error) + "\n"
 							+ e.getLocalizedMessage(), Toast.LENGTH_LONG);
-			Log.w("EditPage", e.getMessage());
+			Log.w("EditPageActivity", e.getMessage());
 		}
 	}
 	

@@ -12,8 +12,8 @@ import com.dropbox.client2.session.Session.AccessType;
 
 public class DropboxAuthentication {
 
-	final static private String APP_KEY = "obzo2ccf2eb7sfi"; 
-	final static private String APP_SECRET = "9lprvbdkua4hfby"; 
+	final static private String APP_KEY = "6gj47hxlz7uxd8y"; 
+	final static private String APP_SECRET = "qvf7r2vgkhs4yf4"; 
 	final static private AccessType ACCESS_TYPE = AccessType.DROPBOX;
 
 	final static public String ACCOUNT_PREFS_NAME = "Thiki.DropboxAccount";

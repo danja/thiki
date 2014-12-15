@@ -14,6 +14,7 @@ import org.thoughtcatchers.thiki.R;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Environment;
+// import android.provider.SyncStateContract.Constants;
 import android.util.Log;
 
 public class PagesFiles {
@@ -31,7 +32,7 @@ public class PagesFiles {
 		}
 
 		filesDir = new File(Environment.getExternalStorageDirectory(),
-				"ThoughtCatcher"); // context.getExternalFilesDir(null);
+				Constants.FILES_DIR); // context.getExternalFilesDir(null);
 		
 		boolean isNewInstallation = !filesDir.exists();
 		filesDir.mkdir();
@@ -109,7 +110,7 @@ public class PagesFiles {
 		File[] files = filesDir.listFiles(new FilenameFilter() {
 			public boolean accept(File dir, String filename) {
 
-				if (filename.toLowerCase().endsWith(WikiPage.EXT)) {
+				if (filename.toLowerCase().endsWith(WikiPage.EXT) || filename.toLowerCase().endsWith(RdfRepresentation.EXT)) {
 					File f = new File(dir, filename);
 					if (f.length() > 0) {
 						return true;
@@ -148,13 +149,14 @@ public class PagesFiles {
 		}
 
 		newPageFile.createNewFile();
+		RdfRepresentation.newPage(pageName);
 		return true;
 	}
 
 	public void savePage(String name, String body) throws IOException {
 		File page = getFileForPage(name);
-
 		FileIO.writeContents(page, body);
+		RdfRepresentation.saveMeta();
 	}
 
 	public void toggleCheckbox(String pageTitle, int whichOne)

@@ -33,7 +33,7 @@ public class DropboxWrapper {
 				return retval;
 			}
 		} catch (DropboxException ex) {
-			Log.e("DropboxWrapper", ex.getMessage()+" on "+name);
+			Log.e("DropboxWrapper", ex.toString()+" on "+name);
 		}
 		return dropboxAPI.createFolder(name);
 	}

@@ -12,7 +12,7 @@ import com.dropbox.client2.DropboxAPI.Entry;
 
 public class SyncFileInfo {
 
-	protected static String DROPBOX_FOLDER = "/Apps/ThoughtCatcher";
+	// protected static String DROPBOX_FOLDER = "/Apps/ThoughtCatcher";
 	private String filename;
 	private JSONObject syncInfo;
 	private JSONObject syncMetadata;

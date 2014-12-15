@@ -33,12 +33,12 @@ import android.widget.TextView;
 
 import org.thoughtcatchers.thiki.R;
 
-public class ViewPage extends Activity {
+public class ViewPageActivity extends Activity {
 
-	public static final String TAG = "ViewPage";
+	public static final String TAG = "ViewPageActivity";
 
-	public static final String TITLE_KEY = "ViewPage.Title";
-	public static final String SCROLLPOS_KEY = "ViewPage.ScrollPos";
+	public static final String TITLE_KEY = "ViewPageActivity.Title";
+	public static final String SCROLLPOS_KEY = "ViewPageActivity.ScrollPos";
 
 	private static final int EDIT_PAGE = 0;
 	private static final int LIST_PAGES = 1;
@@ -289,7 +289,7 @@ public class ViewPage extends Activity {
 						}
 
 						if (dropboxAuthentication == null) {
-							dropboxAuthentication = new DropboxAuthentication(ViewPage.this);
+							dropboxAuthentication = new DropboxAuthentication(ViewPageActivity.this);
 						}
 
 						if (!dropboxAuthentication.isAuthenticated()) {
@@ -313,7 +313,7 @@ public class ViewPage extends Activity {
 					} catch (Exception e) {
 						// show sync error
 						activityHelper.showToast(getText(R.string.syncError), e);
-						Log.w("ViewPage", e.getMessage());
+						Log.w("ViewPageActivity", e.toString());
 					} finally {
 						notABadTimeForASync = false;
 					}
@@ -391,7 +391,7 @@ public class ViewPage extends Activity {
 					htmlBody = page.getHtmlBody();
 				} catch (IOException e) {
 					activityHelper.showToast(getText(R.string.page_error), e);
-					Log.w("ViewPage", e.getMessage());
+					Log.w("ViewPageActivity", e.getMessage());
 					return;
 				}
 
@@ -456,7 +456,7 @@ public class ViewPage extends Activity {
 					try {
 						Thread.sleep(100);
 					} catch (InterruptedException ex) {
-						Log.w("ViewPage", ex.getMessage());
+						Log.w("ViewPageActivity", ex.getMessage());
 					}
 					restoreScrollPosHandler.sendEmptyMessage(0);
 				}
@@ -486,7 +486,7 @@ public class ViewPage extends Activity {
 					}
 				} catch (IOException e) {
 					activityHelper.showToast(getText(R.string.save_error), e);
-					Log.w("ViewPage", e.getMessage());
+					Log.w("ViewPageActivity", e.getMessage());
 				}
 			}
 		}).start();
@@ -505,10 +505,10 @@ public class ViewPage extends Activity {
 	}
 
 	private void editPage() {
-		Intent i = new Intent(this, EditPage.class);
+		Intent i = new Intent(this, EditPageActivity.class);
 		Bundle b = new Bundle();
 
-		b.putString(EditPage.TITLE_KEY, currentPage().PageName);
+		b.putString(EditPageActivity.TITLE_KEY, currentPage().PageName);
 		i.putExtras(b);
 
 		rememberScrollPos();
@@ -516,7 +516,7 @@ public class ViewPage extends Activity {
 		try {
 			startActivityForResult(i, EDIT_PAGE);
 		} catch (RuntimeException e) {
-			Log.e("ViewPage", e.getMessage());
+			Log.e("ViewPageActivity", e.getMessage());
 			System.out.println(e.toString());
 			throw e;
 		}
@@ -593,7 +593,7 @@ public class ViewPage extends Activity {
 			startActivity(intent);
 		} catch (ActivityNotFoundException e) {
 			activityHelper.showToast(R.string.unknownMimetype);
-			Log.w("ViewPage", e.getMessage());
+			Log.w("ViewPageActivity", e.getMessage());
 		}
 		return true;
 	}
@@ -643,13 +643,13 @@ public class ViewPage extends Activity {
 	}
 
 	private void listPages() {
-		Intent i = new Intent(this, PagesList.class);
+		Intent i = new Intent(this, PagesListActivity.class);
 		startActivityForResult(i, LIST_PAGES);
 	}
 
 	private void showDropboxLoginCredentials() {
 		Intent i = new Intent(this,
-				org.thoughtcatchers.thiki.dropbox.EditSyncPreferences.class);
+				org.thoughtcatchers.thiki.dropbox.EditSyncPreferencesActivity.class);
 		startActivityForResult(i, LOGIN);
 	}
 }

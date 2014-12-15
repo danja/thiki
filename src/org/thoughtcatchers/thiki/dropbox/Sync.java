@@ -12,6 +12,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.thoughtcatchers.thiki.Constants;
 import org.thoughtcatchers.thiki.ThikiActivityHelper;
 import org.thoughtcatchers.thiki.WikiPage;
 
@@ -73,7 +74,7 @@ public class Sync {
 	}
 
 	public boolean perform() throws IOException, DropboxException {
-		Entry syncDir = dropboxApi.getOrCreateFolder(SyncFileInfo.DROPBOX_FOLDER);
+		Entry syncDir = dropboxApi.getOrCreateFolder(Constants.DROPBOX_FOLDER); // SyncFileInfo.DROPBOX_FOLDER
 
 		showProgress(1, 0);
 

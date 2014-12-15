@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import org.thoughtcatchers.thiki.R;
 
-public class EditSyncPreferences extends Activity {
+public class EditSyncPreferencesActivity extends Activity {
 
 	private DropboxAuthentication dropboxAuth;
 	private ThikiActivityHelper activityHelper;
