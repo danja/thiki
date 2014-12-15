@@ -40,7 +40,7 @@ public class RdfRepresentation {
 		Resource page = model.createResource(PAGE_NS+pageName)
 		             .addProperty(DC.title, pageName)
 		             .addProperty(DC.date, toISODate(new Date()));
-		System.out.println("in newPage, Turtle :");
+		// System.out.println("in newPage, Turtle :");
 		model.write(System.out, "Turtle");
 		
 	}

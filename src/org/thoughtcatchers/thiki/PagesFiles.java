@@ -149,13 +149,15 @@ public class PagesFiles {
 		}
 
 		newPageFile.createNewFile();
-		RdfRepresentation.newPage(pageName);
+	//	RdfRepresentation.newPage(pageName);
 		return true;
 	}
 
 	public void savePage(String name, String body) throws IOException {
+		Log.d("PagesFiles.savePage : ", name);
 		File page = getFileForPage(name);
 		FileIO.writeContents(page, body);
+		RdfRepresentation.newPage(name);
 		RdfRepresentation.saveMeta();
 	}
 
