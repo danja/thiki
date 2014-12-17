@@ -1,5 +1,7 @@
 package org.thoughtcatchers.thiki.dropbox;
 
+import org.thoughtcatchers.thiki.Constants;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -12,8 +14,6 @@ import com.dropbox.client2.session.Session.AccessType;
 
 public class DropboxAuthentication {
 
-	final static private String APP_KEY = "6gj47hxlz7uxd8y"; 
-	final static private String APP_SECRET = "qvf7r2vgkhs4yf4"; 
 	final static private AccessType ACCESS_TYPE = AccessType.DROPBOX;
 	
 	final static public String ACCOUNT_PREFS_NAME = "Thiki.DropboxAccount";
@@ -35,7 +35,7 @@ public class DropboxAuthentication {
 	}
 	
 	private void initialize() { 
-		AppKeyPair appKeys = new AppKeyPair(APP_KEY, APP_SECRET);
+		AppKeyPair appKeys = new AppKeyPair(Constants.APP_KEY, Constants.APP_SECRET);
 		AccessTokenPair access = getStoredKeys();
 		
 		AndroidAuthSession session;

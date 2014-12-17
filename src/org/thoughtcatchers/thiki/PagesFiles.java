@@ -31,8 +31,9 @@ public class PagesFiles {
 					.toString());
 		}
 
-		filesDir = new File(Environment.getExternalStorageDirectory(),
-				Constants.FILES_DIR); // context.getExternalFilesDir(null);
+	//	filesDir = new File(Environment.getExternalStorageDirectory(),
+	//			Constants.FILES_DIR); // context.getExternalFilesDir(null);
+		filesDir = context.getExternalFilesDir(null);
 		
 		boolean isNewInstallation = !filesDir.exists();
 		filesDir.mkdir();
