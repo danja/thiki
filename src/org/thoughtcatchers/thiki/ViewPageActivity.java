@@ -50,23 +50,26 @@ public class ViewPageActivity extends Activity {
 	private boolean ignoreBrowserUpdate;
 	private String customWindowTitle;
 	private Stack<ViewPageCommand> history;
-	private boolean notABadTimeForASync = false;
+	// private boolean notABadTimeForASync = false;
 	private SyncPrefs syncPrefs;
-	private boolean syncRequestedByUser = false;
-	private Handler refreshHandler;
+	// private boolean syncRequestedByUser = false;
+	// private Handler refreshHandler;
 	private Lock refreshLock = new ReentrantLock();
-	private DropboxAuthentication dropboxAuthentication;
+	// private DropboxAuthentication dropboxAuthentication;
+	private SyncRunner syncRunner  = new SyncRunner(this);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		activityHelper = new ThikiActivityHelper(this);
+		syncRunner.setActivityHelper(activityHelper);
 		if (!activityHelper.isInitialized()) {
 			finish();
 			return;
 		}
-		syncPrefs = new SyncPrefs(this);
+		 syncPrefs = new SyncPrefs(this);
+		syncRunner.setSyncPrefs(syncPrefs);
 
 		hasCustomTitle = requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 
@@ -106,8 +109,9 @@ public class ViewPageActivity extends Activity {
 
 		setClickListenerOn(R.id.button_sync, new View.OnClickListener() {
 			public void onClick(View v) {
-				syncRequestedByUser = true;
-				notABadTimeForASync = true;
+			//	syncRequestedByUser = true;
+				syncRunner.setNotABadTimeForASync(true);
+				syncRunner.setSyncRequestedByUser(true);
 			}
 		});
 	}
@@ -130,7 +134,7 @@ public class ViewPageActivity extends Activity {
 		}
 	}
 
-	private void showStatus(String message, int progressPct) {
+	void showStatus(String message, int progressPct) {
 		if (hasCustomTitle) {
 			TextView titleMessage = activityHelper.find(R.id.title_message);
 			if (message.length() > 20) {
@@ -149,7 +153,7 @@ public class ViewPageActivity extends Activity {
 		}
 	}
 
-	private void hideStatus() {
+	void hideStatus() {
 		if (hasCustomTitle) {
 			TextView titleMessage = activityHelper.find(R.id.title_message);
 			titleMessage.setText("");
@@ -164,13 +168,7 @@ public class ViewPageActivity extends Activity {
 	private void initializeLocals() {
 		history = new Stack<ViewPageCommand>();
 
-		refreshHandler = new Handler() {
-			@Override
-			public void handleMessage(Message msg) {
-				rememberScrollPos();
-				showOrRefreshCurrentPage();
-			}
-		};
+	
 	}
 
 	private WebView getWebView(int which) {
@@ -247,28 +245,20 @@ public class ViewPageActivity extends Activity {
 
 	private void startSyncThread() {
 		// show sync progress in title bar
-		final Handler syncProgressHandler = new Handler() {
-			@Override
-			public void handleMessage(Message msg) {
-				String message = (String) msg.obj;
-				int pct = msg.arg1;
-				showStatus(message, pct);
-			}
-		};
-		final Handler hideStatusHandler = new Handler() {
-			@Override
-			public void handleMessage(Message msg) {
-				hideStatus();
-			}
-		};
-
+		
+		//Log.d("ViewPageActivity.syncPrefs = ", " "+syncPrefs);
+		//Log.d("ViewPageActivity.syncRunner = ", " "+syncRunner);
 		// do the initial sync?
 		if (syncPrefs.getOnStartup()) {
-			notABadTimeForASync = true;
+			syncRunner.setNotABadTimeForASync(true);
 		}
 
+	
+		// syncRunner.setNotABadTimeForASync(notABadTimeForASync);
 		// start a synchronization thread
-		Thread t = new Thread(new Runnable() {
+		Thread t = new Thread(syncRunner);
+				/*
+				new Runnable() {
 			public void run() {
 				while (true) {
 					try {
@@ -319,7 +309,9 @@ public class ViewPageActivity extends Activity {
 					}
 				}
 			}
-		});
+		}
+		);
+		*/
 		t.start();
 	}
 
@@ -365,7 +357,7 @@ public class ViewPageActivity extends Activity {
 
 	private boolean inRefresh = false;
 
-	private void showOrRefreshCurrentPage() {
+	void showOrRefreshCurrentPage() {
 		// log("Requesting lock...");
 		refreshLock.lock();
 		// log("in lock");
@@ -407,7 +399,7 @@ public class ViewPageActivity extends Activity {
 		}).start();
 	}
 
-	private void rememberScrollPos() {
+	void rememberScrollPos() {
 		final WebView wv = getWebView();
 		currentPage().setScrollPos(wv.getContentHeight(), wv.getScrollY());
 	}
@@ -482,7 +474,7 @@ public class ViewPageActivity extends Activity {
 					// itself.
 
 					if (syncPrefs.getAfterEdit()) {
-						notABadTimeForASync = true;
+						syncRunner.setNotABadTimeForASync(true);
 					}
 				} catch (IOException e) {
 					activityHelper.showToast(getText(R.string.save_error), e);
@@ -530,7 +522,7 @@ public class ViewPageActivity extends Activity {
 		case EDIT_PAGE:
 			showOrRefreshCurrentPage();
 			if (syncPrefs.getAfterEdit()) {
-				notABadTimeForASync = true;
+				syncRunner.setNotABadTimeForASync(true);
 			}
 			return;
 
@@ -542,10 +534,10 @@ public class ViewPageActivity extends Activity {
 			break;
 
 		case LOGIN:
-			if (dropboxAuthentication != null) {
-				dropboxAuthentication.reInitialize();
+			if (syncRunner.getDropboxAuthentication() != null) {
+				syncRunner.getDropboxAuthentication().reInitialize();
 			}
-			notABadTimeForASync = true;
+			syncRunner.setNotABadTimeForASync(true);
 			break;
 
 		}
