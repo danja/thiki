@@ -36,12 +36,12 @@ public class EditSyncPreferencesActivity extends Activity {
 
 		submitButton = activityHelper.find(R.id.login_submit);
 
-		initializeBooleans();
+		initializeCommonSettings();
 		initializeSpinner();
-		initializeLoginControls();
+		initializeDropboxControls();
 	}
 
-	private void initializeBooleans() {
+	private void initializeCommonSettings() {
 		CheckBox checkBox = activityHelper.find(R.id.after_edit);
 		checkBox.setChecked(syncPreferences.getAfterEdit());
 		checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -70,7 +70,7 @@ public class EditSyncPreferencesActivity extends Activity {
 		});
 	}
 
-	private void initializeLoginControls() {
+	private void initializeDropboxControls() {
 		dropboxAuth = new DropboxAuthentication(this);
 
 		submitButton.setOnClickListener(new OnClickListener() {

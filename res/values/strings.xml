@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="about">About</string>
     <string name="about_text">Thiki Wiki\n\n
 		**Thiki Wiki for Android** is a notebook with linkable
 		pages for tracking your ideas, tasks, projects, notes,
-		brainstorms - in short, your life - in the most flexible way. \n\n
-		This software was derived from code written by Jan Willem Boer in 2010. 
-		This version is maintained by danny.ayers@gmail.com.\n\n
+		brainstorms - in short, your stuff. \n\n
 		This software is provided \'as-is\', without any express or implied
 		warranty. In no event will the author(s) be held liable for any
-		damages
-		arising from the use of this software.\n\n
-		If you bought this software, this means you have bought a license, which
-		allows you personally to use the software.
-		So, if you buy a new Android device, or if you have two Android devices,
-		you may install the software more
-		than once. Please contact Danny Ayers in case of any trouble with
-		this.\n\n </string>
+		damages arising from the use of this software.\n\n
+		[Project Homepage](http://danja.github.io/thiki/)\n\n
+        Contact : danny.ayers@gmail.com\n\n </string>
     <string name="add_page">Add</string>
     <string name="app_name">Thiki Wiki</string>
     <string name="back">Back</string>
@@ -49,39 +41,47 @@
     <string name="delete">Delete</string>
 
     <!-- Sync Settings Common -->
-        <string name="sync">Sync</string>
+    <string name="sync">Sync</string>
     <string name="sync_settings">Sync settings</string>
-    <string name="sync_frequency">Sync Triggers</string>
+    <string name="sync_common">Common</string>
     <string name="sync_when_starting_app">On application startup</string>
     <string name="sync_after_edit">After editing a page</string>
     <string name="sync_periodically">Periodically</string>
     <string name="sync_periodically_minutes">Interval (minutes)</string>
-    
+
     <!-- File Sync Settings -->
     <string name="file_label">Connection with File Storage</string>
-    <string name="include_file_sync">Include File Sync.</string>
+    <string name="enable_file_sync">Enable File Sync.</string>
     <string name="enter_file_path">Enter Path</string>
     <string name="default_file_path">/sdcard/thiki</string>
 
-        <!-- HTTP Sync Settings -->
+    <!-- HTTP Sync Settings -->
     <string name="http_label">Connection over HTTP</string>
-    <string name="include_http_sync">Include HTTP Sync</string>
+    <string name="enable_http_sync">Enable HTTP Sync</string>
     <string name="enter_http_url">Enter HTTP Base URL</string>
     <string name="default_http_url">http://192.168.0.77:8888/wiki</string>
-    
+    <string name="enter_http_user">Enter HTTP Username</string>
+    <string name="default_http_user">danja</string>
+    <string name="enter_http_password">Enter HTTP Password</string>
+    <string name="default_http_password">sasha</string>
+
     <!-- SPARQL Sync Settings -->
-    <string name="sparql_label">Connection with SPARQL Endpoints</string>
-    <string name="include_sparql_sync">Include SPARQL Sync.</string>
+    <string name="sparql_label">Connection to SPARQL Endpoints</string>
+    <string name="enable_sparql_sync">Enable SPARQL Sync.</string>
     <string name="enter_sparql_query_url">Enter SPARQL Query URL</string>
     <string name="default_sparql_query_url">http://192.168.0.77:3030/seki/sparql</string>
     <string name="enter_sparql_update_url">Enter SPARQL Update URL</string>
     <string name="default_sparql_update_url">http://192.168.0.77:3030/seki/update</string>
+    <string name="enter_sparql_user">Enter SPARQL Username</string>
+    <string name="default_sparql_user">danja</string>
+    <string name="enter_sparql_password">Enter SPARQL Password</string>
+    <string name="default_sparql_password">sasha</string>
 
     <!-- Dropbox Sync Settings -->
     <string name="do_dropbox_login">Log in</string>
     <string name="do_dropbox_logout">Forget credentials</string>
     <string name="dropbox_label">Connection with Dropbox</string>
-    <string name="include_dropbox_sync">Include Dropbox Sync.</string>
+    <string name="enable_dropbox_sync">Enable Dropbox Sync</string>
     <string name="dropbox_login">User</string>
     <string name="dropbox_password">Password</string>
     <string name="edit">Edit</string>
@@ -108,7 +108,6 @@
     <string name="storage_not_accessible">The SD card is not accessible.</string>
     <string name="storage_dir_creation_failed">Could not create directory ThoughtCatcher on the SD
 		card.</string>
-
     <string name="synchronizing">Syncing</string>
     <string name="syncError">There was a synchronization error.</string>
     <string name="unknownMimetype">Could not find the app to view this file.</string>

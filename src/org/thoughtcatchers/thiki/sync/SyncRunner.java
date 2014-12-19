@@ -1,10 +1,12 @@
 /**
  * 
  */
-package org.thoughtcatchers.thiki;
+package org.thoughtcatchers.thiki.sync;
 
-import org.thoughtcatchers.thiki.sync.Sync;
-import org.thoughtcatchers.thiki.sync.SyncPrefs;
+import org.thoughtcatchers.thiki.R;
+import org.thoughtcatchers.thiki.ThikiActivityHelper;
+import org.thoughtcatchers.thiki.ViewPageActivity;
+import org.thoughtcatchers.thiki.R.string;
 import org.thoughtcatchers.thiki.sync.dropbox.DropboxAuthentication;
 
 import android.os.Handler;

@@ -6,12 +6,12 @@
 
     <!-- Common Settings -->
     <TextView
-        android:layout_width="fill_parent"
+        android:layout_width="228dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dip"
         android:layout_marginLeft="90dip"
         android:layout_marginTop="15dip"
-        android:text="@string/sync_frequency"
+        android:text="@string/sync_common"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -95,7 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dip"
-        android:layout_marginLeft="60dip"
+        android:layout_marginLeft="5dip"
         android:layout_marginTop="15dip"
         android:text="@string/file_label"
         android:textSize="20sp"
@@ -110,11 +110,11 @@
             android:layout_width="200dip"
             android:layout_height="wrap_content"
             android:paddingRight="10dip"
-            android:text="@string/include_file_sync"
+            android:text="@string/enable_file_sync"
             android:textSize="15sp" />
 
         <CheckBox
-            android:id="@+id/include_file_sync"
+            android:id="@+id/enable_file_sync"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
@@ -150,7 +150,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dip"
-        android:layout_marginLeft="60dip"
+        android:layout_marginLeft="5dip"
         android:layout_marginTop="5dip"
         android:text="@string/http_label"
         android:textSize="20sp"
@@ -165,11 +165,11 @@
             android:layout_width="200dip"
             android:layout_height="wrap_content"
             android:paddingRight="10dip"
-            android:text="@string/include_http_sync"
+            android:text="@string/enable_http_sync"
             android:textSize="15sp" />
 
         <CheckBox
-            android:id="@+id/include_restful_sync"
+            android:id="@+id/enable_restful_sync"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
@@ -196,7 +196,40 @@
             android:inputType="textUri"
             android:text="@string/default_http_url" >
             <requestFocus />
-            
+        </EditText>
+        
+                <TextView
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dip"
+            android:text="@string/enter_http_url"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/http_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textUri"
+            android:text="@string/default_http_user" >
+            <requestFocus />
+        </EditText>
+        
+                <TextView
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dip"
+            android:text="@string/enter_http_password"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/http_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:text="@string/default_http_password" >
+            <requestFocus />
         </EditText>
     </LinearLayout>
 
@@ -206,7 +239,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dip"
-        android:layout_marginLeft="60dip"
+        android:layout_marginLeft="5dip"
         android:layout_marginTop="15dip"
         android:text="@string/sparql_label"
         android:textSize="20sp"
@@ -221,11 +254,11 @@
             android:layout_width="200dip"
             android:layout_height="wrap_content"
             android:paddingRight="10dip"
-            android:text="@string/include_sparql_sync"
+            android:text="@string/enable_sparql_sync"
             android:textSize="15sp" />
 
         <CheckBox
-            android:id="@+id/include_sparql_sync"
+            android:id="@+id/enable_sparql_sync"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
@@ -278,15 +311,48 @@
 
             <requestFocus />
         </EditText>
+        
+                <TextView
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dip"
+            android:text="@string/enter_sparql_user"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/sparql_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textUri"
+            android:text="@string/default_sparql_user" >
+            <requestFocus />
+        </EditText>
+        
+                <TextView
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dip"
+            android:text="@string/enter_sparql_password"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/sparql_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:text="@string/default_sparql_password" >
+            <requestFocus />
+        </EditText>
     </LinearLayout>
 
     <!-- Dropbox Connection -->
-
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dip"
-        android:layout_marginLeft="60dip"
+        android:layout_marginLeft="5dip"
         android:layout_marginTop="15dip"
         android:text="@string/dropbox_label"
         android:textSize="20sp"
@@ -301,11 +367,11 @@
             android:layout_width="200dip"
             android:layout_height="wrap_content"
             android:paddingRight="10dip"
-            android:text="@string/include_dropbox_sync"
+            android:text="@string/enable_dropbox_sync"
             android:textSize="15sp" />
 
         <CheckBox
-            android:id="@+id/include_dropbox_sync"
+            android:id="@+id/enable_dropbox_sync"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"

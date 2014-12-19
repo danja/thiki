@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 
 import org.thoughtcatchers.thiki.sync.Sync;
 import org.thoughtcatchers.thiki.sync.SyncPrefs;
+import org.thoughtcatchers.thiki.sync.SyncRunner;
 import org.thoughtcatchers.thiki.sync.dropbox.DropboxAuthentication;
 
 import android.app.Activity;
@@ -50,6 +51,8 @@ public class ViewPageActivity extends Activity {
 	private boolean ignoreBrowserUpdate;
 	private String customWindowTitle;
 	private Stack<ViewPageCommand> history;
+	
+	private boolean inRefresh = false;
 	// private boolean notABadTimeForASync = false;
 	private SyncPrefs syncPrefs;
 	// private boolean syncRequestedByUser = false;
@@ -134,7 +137,7 @@ public class ViewPageActivity extends Activity {
 		}
 	}
 
-	void showStatus(String message, int progressPct) {
+	public void showStatus(String message, int progressPct) {
 		if (hasCustomTitle) {
 			TextView titleMessage = activityHelper.find(R.id.title_message);
 			if (message.length() > 20) {
@@ -153,7 +156,7 @@ public class ViewPageActivity extends Activity {
 		}
 	}
 
-	void hideStatus() {
+	public void hideStatus() {
 		if (hasCustomTitle) {
 			TextView titleMessage = activityHelper.find(R.id.title_message);
 			titleMessage.setText("");
@@ -355,9 +358,9 @@ public class ViewPageActivity extends Activity {
 		System.out.println(message);
 	}
 
-	private boolean inRefresh = false;
+	
 
-	void showOrRefreshCurrentPage() {
+	public void showOrRefreshCurrentPage() {
 		// log("Requesting lock...");
 		refreshLock.lock();
 		// log("in lock");
@@ -399,7 +402,7 @@ public class ViewPageActivity extends Activity {
 		}).start();
 	}
 
-	void rememberScrollPos() {
+	public void rememberScrollPos() {
 		final WebView wv = getWebView();
 		currentPage().setScrollPos(wv.getContentHeight(), wv.getScrollY());
 	}
