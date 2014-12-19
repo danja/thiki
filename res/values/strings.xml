@@ -63,13 +63,19 @@
     <string name="enter_file_path">Enter Path</string>
     <string name="default_file_path">/sdcard/thiki</string>
 
+        <!-- HTTP Sync Settings -->
+    <string name="http_label">Connection over HTTP</string>
+    <string name="include_http_sync">Include HTTP Sync</string>
+    <string name="enter_http_url">Enter HTTP Base URL</string>
+    <string name="default_http_url">http://192.168.0.77:8888/wiki</string>
+    
     <!-- SPARQL Sync Settings -->
     <string name="sparql_label">Connection with SPARQL Endpoints</string>
     <string name="include_sparql_sync">Include SPARQL Sync.</string>
     <string name="enter_sparql_query_url">Enter SPARQL Query URL</string>
-    <string name="default_sparql_query_url">http://127.0.0.1:3030/seki/sparql</string>
+    <string name="default_sparql_query_url">http://192.168.0.77:3030/seki/sparql</string>
     <string name="enter_sparql_update_url">Enter SPARQL Update URL</string>
-    <string name="default_sparql_update_url">http://127.0.0.1:3030/seki/update</string>
+    <string name="default_sparql_update_url">http://192.168.0.77:3030/seki/update</string>
 
     <!-- Dropbox Sync Settings -->
     <string name="do_dropbox_login">Log in</string>
