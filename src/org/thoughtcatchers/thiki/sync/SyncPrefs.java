@@ -1,4 +1,4 @@
-package org.thoughtcatchers.thiki.dropbox;
+package org.thoughtcatchers.thiki.sync;
 
 import android.content.Context;
 import android.content.SharedPreferences;

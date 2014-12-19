@@ -14,7 +14,7 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-		<activity android:name="org.thoughtcatchers.thiki.dropbox.EditSyncPreferencesActivity" />
+		<activity android:name="org.thoughtcatchers.thiki.sync.EditSyncPreferencesActivity" />
 	<activity
       android:name="com.dropbox.client2.android.AuthActivity"
       android:launchMode="singleTask"

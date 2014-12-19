@@ -1,4 +1,4 @@
-package org.thoughtcatchers.thiki.dropbox;
+package org.thoughtcatchers.thiki.sync.dropbox;
 
 import org.thoughtcatchers.thiki.Constants;
 

@@ -1,4 +1,4 @@
-package org.thoughtcatchers.thiki.dropbox;
+package org.thoughtcatchers.thiki.sync;
 
 import org.thoughtcatchers.thiki.ThikiActivityHelper;
 
@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import org.thoughtcatchers.thiki.R;
+import org.thoughtcatchers.thiki.sync.dropbox.DropboxAuthentication;
 
 public class EditSyncPreferencesActivity extends Activity {
 

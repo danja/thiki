@@ -3,9 +3,9 @@
  */
 package org.thoughtcatchers.thiki;
 
-import org.thoughtcatchers.thiki.dropbox.DropboxAuthentication;
-import org.thoughtcatchers.thiki.dropbox.Sync;
-import org.thoughtcatchers.thiki.dropbox.SyncPrefs;
+import org.thoughtcatchers.thiki.sync.Sync;
+import org.thoughtcatchers.thiki.sync.SyncPrefs;
+import org.thoughtcatchers.thiki.sync.dropbox.DropboxAuthentication;
 
 import android.os.Handler;
 import android.os.Message;

@@ -1,4 +1,4 @@
-package org.thoughtcatchers.thiki.dropbox;
+package org.thoughtcatchers.thiki.sync;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -24,6 +24,7 @@ import com.dropbox.client2.DropboxAPI.Entry;
 import com.dropbox.client2.exception.DropboxException;
 
 import org.thoughtcatchers.thiki.R;
+import org.thoughtcatchers.thiki.sync.dropbox.DropboxWrapper;
 
 public class Sync {
 

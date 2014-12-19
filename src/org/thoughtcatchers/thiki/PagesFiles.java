@@ -20,6 +20,10 @@ import android.util.Log;
 public class PagesFiles {
 
 	private File filesDir;
+	public File getFilesDir() {
+		return filesDir;
+	}
+
 	private Context context;
 
 	public PagesFiles(Context ctx) throws IOException {

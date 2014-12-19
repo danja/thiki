@@ -7,9 +7,9 @@ import java.util.concurrent.locks.ReentrantLock;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.thoughtcatchers.thiki.dropbox.DropboxAuthentication;
-import org.thoughtcatchers.thiki.dropbox.Sync;
-import org.thoughtcatchers.thiki.dropbox.SyncPrefs;
+import org.thoughtcatchers.thiki.sync.Sync;
+import org.thoughtcatchers.thiki.sync.SyncPrefs;
+import org.thoughtcatchers.thiki.sync.dropbox.DropboxAuthentication;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
@@ -641,7 +641,7 @@ public class ViewPageActivity extends Activity {
 
 	private void showDropboxLoginCredentials() {
 		Intent i = new Intent(this,
-				org.thoughtcatchers.thiki.dropbox.EditSyncPreferencesActivity.class);
+				org.thoughtcatchers.thiki.sync.EditSyncPreferencesActivity.class);
 		startActivityForResult(i, LOGIN);
 	}
 }
