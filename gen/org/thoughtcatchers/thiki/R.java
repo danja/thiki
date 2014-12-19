@@ -69,45 +69,51 @@ containing a value of this type.
         public static final int sync=0x7f02000c;
     }
     public static final class id {
-        public static final int about=0x7f07001d;
-        public static final int after_edit=0x7f070006;
-        public static final int button_add=0x7f070011;
-        public static final int button_back=0x7f070012;
-        public static final int button_edit=0x7f070014;
-        public static final int button_home=0x7f070013;
-        public static final int button_sync=0x7f070015;
-        public static final int cancel=0x7f07000e;
-        public static final int confirm=0x7f07000d;
-        public static final int delete=0x7f070019;
-        public static final int dropbox_login=0x7f07001b;
-        public static final int empty=0x7f070010;
-        public static final int help=0x7f07001c;
-        public static final int list_pages=0x7f07001a;
-        public static final int listview=0x7f07000f;
-        public static final int login_submit=0x7f070004;
-        public static final int minutes_spinner=0x7f070008;
-        public static final int open=0x7f070018;
-        public static final int page_body=0x7f07000a;
-        public static final int page_title=0x7f070009;
-        public static final int periodically=0x7f070007;
-        public static final int quit=0x7f07001e;
-        public static final int save=0x7f07000b;
-        public static final int text1=0x7f07000c;
+        public static final int about=0x7f070023;
+        public static final int after_edit=0x7f07000e;
+        public static final int button_add=0x7f07000c;
+        public static final int button_back=0x7f070018;
+        public static final int button_edit=0x7f07001a;
+        public static final int button_home=0x7f070019;
+        public static final int button_sync=0x7f07001b;
+        public static final int cancel=0x7f070009;
+        public static final int confirm=0x7f070008;
+        public static final int default_file_path=0x7f070012;
+        public static final int delete=0x7f07001f;
+        public static final int dropbox_login=0x7f070021;
+        public static final int empty=0x7f07000b;
+        public static final int help=0x7f070022;
+        public static final int include_dropbox_sync=0x7f070016;
+        public static final int include_file_sync=0x7f070011;
+        public static final int include_sparql_sync=0x7f070013;
+        public static final int list_pages=0x7f070020;
+        public static final int listview=0x7f07000a;
+        public static final int login_submit=0x7f070017;
+        public static final int minutes_spinner=0x7f070010;
+        public static final int open=0x7f07001e;
+        public static final int page_body=0x7f070005;
+        public static final int page_title=0x7f070004;
+        public static final int periodically=0x7f07000f;
+        public static final int quit=0x7f070024;
+        public static final int save=0x7f070006;
+        public static final int sparql_query_url=0x7f070014;
+        public static final int sparql_update_url=0x7f070015;
+        public static final int text1=0x7f070007;
         public static final int title=0x7f070001;
         public static final int title_message=0x7f070002;
         public static final int title_progressbar=0x7f070003;
         public static final int titlebar_layout=0x7f070000;
-        public static final int webview0=0x7f070016;
-        public static final int webview1=0x7f070017;
-        public static final int when_starting_app=0x7f070005;
+        public static final int webview0=0x7f07001c;
+        public static final int webview1=0x7f07001d;
+        public static final int when_starting_app=0x7f07000d;
     }
     public static final class layout {
         public static final int custom_titlebar=0x7f030000;
-        public static final int dropbox_sync=0x7f030001;
-        public static final int edit_page=0x7f030002;
-        public static final int newpage_name=0x7f030003;
-        public static final int pageslist=0x7f030004;
-        public static final int pageslist_item=0x7f030005;
+        public static final int edit_page=0x7f030001;
+        public static final int newpage_name=0x7f030002;
+        public static final int pageslist=0x7f030003;
+        public static final int pageslist_item=0x7f030004;
+        public static final int sync=0x7f030005;
         public static final int view_page=0x7f030006;
     }
     public static final class menu {
@@ -122,47 +128,66 @@ containing a value of this type.
         public static final int back=0x7f040004;
         public static final int cancel=0x7f040006;
         public static final int confirm=0x7f040005;
+        public static final int default_file_path=0x7f040013;
         public static final int default_page_text=0x7f040007;
+        public static final int default_sparql_query_url=0x7f040017;
+        public static final int default_sparql_update_url=0x7f040019;
         public static final int delete=0x7f040008;
-        public static final int do_dropbox_login=0x7f040009;
-        public static final int do_dropbox_logout=0x7f04000a;
-        public static final int dropbox_explanation=0x7f04000b;
-        public static final int dropbox_login=0x7f04000c;
-        public static final int dropbox_password=0x7f04000d;
-        public static final int edit=0x7f04000e;
-        public static final int edit_css=0x7f04000f;
-        public static final int enter_password=0x7f040011;
-        public static final int enter_valid_email=0x7f040010;
-        public static final int help=0x7f040012;
-        public static final int help_text=0x7f040013;
-        public static final int home=0x7f040014;
-        public static final int list_pages=0x7f040015;
-        public static final int list_pages_long=0x7f040016;
-        public static final int login_success=0x7f040017;
-        public static final int more=0x7f040018;
-        public static final int newpage_name_entername=0x7f040019;
-        public static final int no_pages=0x7f04001a;
-        public static final int open=0x7f04001b;
-        public static final int page_error=0x7f04001c;
-        public static final int page_exists=0x7f04001d;
-        public static final int provide_credentials=0x7f04001e;
-        public static final int quit=0x7f04001f;
-        public static final int save=0x7f040020;
-        public static final int save_error=0x7f040021;
-        public static final int storage_dir_creation_failed=0x7f040023;
-        public static final int storage_not_accessible=0x7f040022;
-        public static final int sync=0x7f040024;
-        public static final int syncError=0x7f04002c;
-        public static final int sync_after_edit=0x7f040028;
-        public static final int sync_frequency=0x7f040026;
-        public static final int sync_periodically=0x7f040029;
-        public static final int sync_periodically_minutes=0x7f04002a;
-        public static final int sync_settings=0x7f040025;
-        public static final int sync_when_starting_app=0x7f040027;
-        public static final int synchronizing=0x7f04002b;
-        public static final int unknownMimetype=0x7f04002d;
-        public static final int v2_update_text=0x7f04002f;
-        public static final int v2_update_title=0x7f04002e;
+        /**  Dropbox Sync Settings 
+         */
+        public static final int do_dropbox_login=0x7f04001a;
+        public static final int do_dropbox_logout=0x7f04001b;
+        public static final int dropbox_label=0x7f04001c;
+        public static final int dropbox_login=0x7f04001e;
+        public static final int dropbox_password=0x7f04001f;
+        public static final int edit=0x7f040020;
+        public static final int edit_css=0x7f040021;
+        public static final int enter_file_path=0x7f040012;
+        public static final int enter_password=0x7f040023;
+        public static final int enter_sparql_query_url=0x7f040016;
+        public static final int enter_sparql_update_url=0x7f040018;
+        public static final int enter_valid_email=0x7f040022;
+        /**  File Sync Settings 
+         */
+        public static final int file_label=0x7f040010;
+        public static final int help=0x7f040024;
+        public static final int help_text=0x7f040025;
+        public static final int home=0x7f040026;
+        public static final int include_dropbox_sync=0x7f04001d;
+        public static final int include_file_sync=0x7f040011;
+        public static final int include_sparql_sync=0x7f040015;
+        public static final int list_pages=0x7f040027;
+        public static final int list_pages_long=0x7f040028;
+        public static final int login_success=0x7f040029;
+        public static final int more=0x7f04002a;
+        public static final int newpage_name_entername=0x7f04002b;
+        public static final int no_pages=0x7f04002c;
+        public static final int open=0x7f04002d;
+        public static final int page_error=0x7f04002e;
+        public static final int page_exists=0x7f04002f;
+        public static final int provide_credentials=0x7f040030;
+        public static final int quit=0x7f040031;
+        public static final int save=0x7f040032;
+        public static final int save_error=0x7f040033;
+        /**  SPARQL Sync Settings 
+         */
+        public static final int sparql_label=0x7f040014;
+        public static final int storage_dir_creation_failed=0x7f040035;
+        public static final int storage_not_accessible=0x7f040034;
+        /**  Sync Settings Common 
+         */
+        public static final int sync=0x7f040009;
+        public static final int syncError=0x7f040037;
+        public static final int sync_after_edit=0x7f04000d;
+        public static final int sync_frequency=0x7f04000b;
+        public static final int sync_periodically=0x7f04000e;
+        public static final int sync_periodically_minutes=0x7f04000f;
+        public static final int sync_settings=0x7f04000a;
+        public static final int sync_when_starting_app=0x7f04000c;
+        public static final int synchronizing=0x7f040036;
+        public static final int unknownMimetype=0x7f040038;
+        public static final int v2_update_text=0x7f04003a;
+        public static final int v2_update_title=0x7f040039;
     }
     public static final class style {
         /** 

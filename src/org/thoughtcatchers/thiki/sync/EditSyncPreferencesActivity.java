@@ -29,7 +29,7 @@ public class EditSyncPreferencesActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.dropbox_sync);
+		setContentView(R.layout.sync);
 
 		activityHelper = new ThikiActivityHelper(this);
 		syncPreferences = new SyncPrefs(this);

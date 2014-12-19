@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="about">About</string>
-	<string name="about_text">Thiki Wiki\n\n
+
+    <string name="about">About</string>
+    <string name="about_text">Thiki Wiki\n\n
 		**Thiki Wiki for Android** is a notebook with linkable
 		pages for tracking your ideas, tasks, projects, notes,
 		brainstorms - in short, your life - in the most flexible way. \n\n
@@ -16,14 +17,13 @@
 		So, if you buy a new Android device, or if you have two Android devices,
 		you may install the software more
 		than once. Please contact Danny Ayers in case of any trouble with
-		this.\n\n 
-  </string>
-	<string name="add_page">Add</string>
-	<string name="app_name">Thiki Wiki</string>
-	<string name="back">Back</string>
-	<string name="confirm">OK</string>
-	<string name="cancel">Cancel</string>
-	<string name="default_page_text">Home\n======\n\nThis is the homepage for your
+		this.\n\n </string>
+    <string name="add_page">Add</string>
+    <string name="app_name">Thiki Wiki</string>
+    <string name="back">Back</string>
+    <string name="confirm">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="default_page_text">Home\n======\n\nThis is the homepage for your
 		personal wiki. You can edit this page by
 		touching the Edit button in
 		the toolbar.\n\n
@@ -46,47 +46,67 @@
 		questions, don\'t hesitate to contact the
 		developer at
 		danny.ayers@gmail.com.</string>
-	<string name="delete">Delete</string>
-	<string name="do_dropbox_login">Log in</string>
-	<string name="do_dropbox_logout">Forget credentials</string>
-	<string name="dropbox_explanation">Connection with Dropbox</string>
-	<string name="dropbox_login">User</string>
-	<string name="dropbox_password">Password</string>
-	<string name="edit">Edit</string>
-	<string name="edit_css">Edit CSS</string>
-	<string name="enter_valid_email">Please enter a seemingly valid email address for
+    <string name="delete">Delete</string>
+
+    <!-- Sync Settings Common -->
+        <string name="sync">Sync</string>
+    <string name="sync_settings">Sync settings</string>
+    <string name="sync_frequency">Sync Triggers</string>
+    <string name="sync_when_starting_app">On application startup</string>
+    <string name="sync_after_edit">After editing a page</string>
+    <string name="sync_periodically">Periodically</string>
+    <string name="sync_periodically_minutes">Interval (minutes)</string>
+    
+    <!-- File Sync Settings -->
+    <string name="file_label">Connection with File Storage</string>
+    <string name="include_file_sync">Include File Sync.</string>
+    <string name="enter_file_path">Enter Path</string>
+    <string name="default_file_path">/sdcard/thiki</string>
+
+    <!-- SPARQL Sync Settings -->
+    <string name="sparql_label">Connection with SPARQL Endpoints</string>
+    <string name="include_sparql_sync">Include SPARQL Sync.</string>
+    <string name="enter_sparql_query_url">Enter SPARQL Query URL</string>
+    <string name="default_sparql_query_url">http://127.0.0.1:3030/seki/sparql</string>
+    <string name="enter_sparql_update_url">Enter SPARQL Update URL</string>
+    <string name="default_sparql_update_url">http://127.0.0.1:3030/seki/update</string>
+
+    <!-- Dropbox Sync Settings -->
+    <string name="do_dropbox_login">Log in</string>
+    <string name="do_dropbox_logout">Forget credentials</string>
+    <string name="dropbox_label">Connection with Dropbox</string>
+    <string name="include_dropbox_sync">Include Dropbox Sync.</string>
+    <string name="dropbox_login">User</string>
+    <string name="dropbox_password">Password</string>
+    <string name="edit">Edit</string>
+    <string name="edit_css">Edit CSS</string>
+    <string name="enter_valid_email">Please enter a seemingly valid email address for
 		username.</string>
-	<string name="enter_password">Please enter your password.</string>
-	<string name="help">Help</string>
-	<string name="help_text"></string>
-	<string name="home">Home</string>
-	<string name="list_pages">Pages</string>
-	<string name="list_pages_long">List of pages</string>
-	<string name="login_success">Logged in to Dropbox successfully.</string>
-	<string name="more">More</string>
-	<string name="newpage_name_entername">Enter new page name:</string>
-	<string name="no_pages">No pages in this list.</string>
-	<string name="open">Open</string>
-	<string name="page_error">An error occurred loading the page.</string>
-	<string name="page_exists">A page with this name already exists.</string>
-	<string name="provide_credentials">Please provide your Dropbox credentials first.
-	</string>
-	<string name="quit">Quit</string>
-	<string name="save">Save</string>
-	<string name="save_error">An error occurred while saving the page.</string>
-	<string name="storage_not_accessible">The SD card is not accessible.</string>
-	<string name="storage_dir_creation_failed">Could not create directory ThoughtCatcher on the SD
+    <string name="enter_password">Please enter your password.</string>
+    <string name="help">Help</string>
+    <string name="help_text"></string>
+    <string name="home">Home</string>
+    <string name="list_pages">Pages</string>
+    <string name="list_pages_long">List of pages</string>
+    <string name="login_success">Logged in to Dropbox successfully.</string>
+    <string name="more">More</string>
+    <string name="newpage_name_entername">Enter new page name:</string>
+    <string name="no_pages">No pages in this list.</string>
+    <string name="open">Open</string>
+    <string name="page_error">An error occurred loading the page.</string>
+    <string name="page_exists">A page with this name already exists.</string>
+    <string name="provide_credentials">Please provide your Dropbox credentials first.</string>
+    <string name="quit">Quit</string>
+    <string name="save">Save</string>
+    <string name="save_error">An error occurred while saving the page.</string>
+    <string name="storage_not_accessible">The SD card is not accessible.</string>
+    <string name="storage_dir_creation_failed">Could not create directory ThoughtCatcher on the SD
 		card.</string>
-	<string name="sync">Sync</string>
-	<string name="sync_settings">Sync settings</string>
-	<string name="sync_frequency">Sync frequency</string>
-	<string name="sync_when_starting_app">On application startup</string>
-	<string name="sync_after_edit">After editing a page</string>
-	<string name="sync_periodically">Periodically</string>
-	<string name="sync_periodically_minutes">Interval (minutes)</string>
-	<string name="synchronizing">Syncing</string>
-	<string name="syncError">There was a synchronization error.</string>
-	<string name="unknownMimetype">Could not find the app to view this file.</string>
-	<string name="v2_update_title">Thiki update</string>
-	<string name="v2_update_text">Thiki uses the new Dropbox API.\n\All files must be downloaded from Dropbox; local changes will be lost. A backup of all files has been made to the SD card in the directory ThoughtCatcher-backup.</string>
+
+    <string name="synchronizing">Syncing</string>
+    <string name="syncError">There was a synchronization error.</string>
+    <string name="unknownMimetype">Could not find the app to view this file.</string>
+    <string name="v2_update_title">Thiki update</string>
+    <string name="v2_update_text">Thiki uses the new Dropbox API.\n\All files must be downloaded from Dropbox; local changes will be lost. A backup of all files has been made to the SD card in the directory ThoughtCatcher-backup.</string>
+
 </resources>

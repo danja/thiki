@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <!-- Common Settings -->
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="90dip"
+        android:layout_marginTop="15dip"
+        android:text="@string/sync_frequency"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dip"
+            android:text="@string/sync_when_starting_app"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/when_starting_app"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dip"
+            android:text="@string/sync_after_edit"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/after_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dip"
+            android:text="@string/sync_periodically"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/periodically"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dip"
+            android:text="@string/sync_periodically_minutes"
+            android:textSize="15sp" />
+
+        <Spinner
+            android:id="@+id/minutes_spinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <!-- File Connection -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="60dip"
+        android:layout_marginTop="5dip"
+        android:text="@string/file_label"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dip"
+            android:text="@string/include_file_sync"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/include_file_sync"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dip"
+            android:text="@string/enter_file_path"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/default_file_path"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:text="@string/default_file_path" >
+
+            <requestFocus />
+        </EditText>
+    </LinearLayout>
+
+    <!-- SPARQL Connection -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="60dip"
+        android:layout_marginTop="5dip"
+        android:text="@string/sparql_label"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dip"
+            android:text="@string/include_sparql_sync"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/include_sparql_sync"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dip"
+            android:text="@string/enter_sparql_query_url"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/sparql_query_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textUri"
+            android:text="@string/default_sparql_query_url" >
+
+            <requestFocus />
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dip"
+            android:text="@string/enter_sparql_update_url"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/sparql_update_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textUri"
+            android:text="@string/default_sparql_update_url" >
+
+            <requestFocus />
+        </EditText>
+    </LinearLayout>
+
+    <!-- Dropbox Connection -->
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="60dip"
+        android:layout_marginTop="5dip"
+        android:text="@string/dropbox_label"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dip"
+            android:text="@string/include_dropbox_sync"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/include_dropbox_sync"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/login_submit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/do_dropbox_login" />
+
+</LinearLayout>
