@@ -55,7 +55,6 @@
     <string name="enter_file_path">Enter Path</string>
     <string name="default_file_path">/sdcard/thiki</string>
 
-<<<<<<< HEAD
     <!-- HTTP Sync Settings -->
     <string name="http_label">Connection over HTTP</string>
     <string name="enable_http_sync">Enable HTTP Sync</string>
@@ -66,14 +65,6 @@
     <string name="enter_http_password">Enter HTTP Password</string>
     <string name="default_http_password">sasha</string>
 
-=======
-        <!-- HTTP Sync Settings -->
-    <string name="http_label">Connection over HTTP</string>
-    <string name="include_http_sync">Include HTTP Sync</string>
-    <string name="enter_http_url">Enter HTTP Base URL</string>
-    <string name="default_http_url">http://192.168.0.77:8888/wiki</string>
-    
->>>>>>> f636b9e2d7b7f0a24737627da2ee67aab477f277
     <!-- SPARQL Sync Settings -->
     <string name="sparql_label">Connection to SPARQL Endpoints</string>
     <string name="enable_sparql_sync">Enable SPARQL Sync.</string>
@@ -81,13 +72,12 @@
     <string name="default_sparql_query_url">http://192.168.0.77:3030/seki/sparql</string>
     <string name="enter_sparql_update_url">Enter SPARQL Update URL</string>
     <string name="default_sparql_update_url">http://192.168.0.77:3030/seki/update</string>
-<<<<<<< HEAD
+
     <string name="enter_sparql_user">Enter SPARQL Username</string>
     <string name="default_sparql_user">danja</string>
     <string name="enter_sparql_password">Enter SPARQL Password</string>
     <string name="default_sparql_password">sasha</string>
-=======
->>>>>>> f636b9e2d7b7f0a24737627da2ee67aab477f277
+
 
     <!-- Dropbox Sync Settings -->
     <string name="do_dropbox_login">Log in</string>

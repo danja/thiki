@@ -4,16 +4,13 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-<<<<<<< HEAD
     <!-- Common Settings -->
-=======
-    <!-- Common Settings -->
->>>>>>> f636b9e2d7b7f0a24737627da2ee67aab477f277
+
     <TextView
         android:layout_width="228dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dip"
-        android:layout_marginLeft="90dip"
+        android:layout_marginLeft="5dip"
         android:layout_marginTop="15dip"
         android:text="@string/sync_common"
         android:textSize="20sp"
@@ -95,15 +92,12 @@
     </LinearLayout>
 
     <!-- File Connection -->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dip"
-<<<<<<< HEAD
         android:layout_marginLeft="5dip"
-=======
-        android:layout_marginLeft="60dip"
->>>>>>> f636b9e2d7b7f0a24737627da2ee67aab477f277
         android:layout_marginTop="15dip"
         android:text="@string/file_label"
         android:textSize="20sp"
@@ -154,15 +148,12 @@
     </LinearLayout>
 
     <!-- HTTP Connection -->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dip"
-<<<<<<< HEAD
         android:layout_marginLeft="5dip"
-=======
-        android:layout_marginLeft="60dip"
->>>>>>> f636b9e2d7b7f0a24737627da2ee67aab477f277
         android:layout_marginTop="5dip"
         android:text="@string/http_label"
         android:textSize="20sp"
@@ -177,7 +168,6 @@
             android:layout_width="200dip"
             android:layout_height="wrap_content"
             android:paddingRight="10dip"
-<<<<<<< HEAD
             android:text="@string/enable_http_sync"
             android:textSize="15sp" />
 
@@ -208,10 +198,11 @@
             android:ems="10"
             android:inputType="textUri"
             android:text="@string/default_http_url" >
+
             <requestFocus />
         </EditText>
-        
-                <TextView
+
+        <TextView
             android:layout_width="200dip"
             android:layout_height="wrap_content"
             android:paddingRight="10dip"
@@ -225,10 +216,11 @@
             android:ems="10"
             android:inputType="textUri"
             android:text="@string/default_http_user" >
+
             <requestFocus />
         </EditText>
-        
-                <TextView
+
+        <TextView
             android:layout_width="200dip"
             android:layout_height="wrap_content"
             android:paddingRight="10dip"
@@ -242,55 +234,18 @@
             android:ems="10"
             android:inputType="textPassword"
             android:text="@string/default_http_password" >
+
             <requestFocus />
-=======
-            android:text="@string/include_http_sync"
-            android:textSize="15sp" />
-
-        <CheckBox
-            android:id="@+id/include_restful_sync"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
-
-        <TextView
-            android:layout_width="200dip"
-            android:layout_height="wrap_content"
-            android:paddingRight="10dip"
-            android:text="@string/enter_http_url"
-            android:textSize="15sp" />
-
-        <EditText
-            android:id="@+id/http_url"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textUri"
-            android:text="@string/default_http_url" >
-            <requestFocus />
-            
->>>>>>> f636b9e2d7b7f0a24737627da2ee67aab477f277
         </EditText>
     </LinearLayout>
 
-    
     <!-- SPARQL Connection -->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dip"
-<<<<<<< HEAD
         android:layout_marginLeft="5dip"
-=======
-        android:layout_marginLeft="60dip"
->>>>>>> f636b9e2d7b7f0a24737627da2ee67aab477f277
         android:layout_marginTop="15dip"
         android:text="@string/sparql_label"
         android:textSize="20sp"
@@ -362,8 +317,8 @@
 
             <requestFocus />
         </EditText>
-        
-                <TextView
+
+        <TextView
             android:layout_width="200dip"
             android:layout_height="wrap_content"
             android:paddingRight="10dip"
@@ -377,10 +332,11 @@
             android:ems="10"
             android:inputType="textUri"
             android:text="@string/default_sparql_user" >
+
             <requestFocus />
         </EditText>
-        
-                <TextView
+
+        <TextView
             android:layout_width="200dip"
             android:layout_height="wrap_content"
             android:paddingRight="10dip"
@@ -394,20 +350,18 @@
             android:ems="10"
             android:inputType="textPassword"
             android:text="@string/default_sparql_password" >
+
             <requestFocus />
         </EditText>
     </LinearLayout>
 
     <!-- Dropbox Connection -->
+
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dip"
-<<<<<<< HEAD
         android:layout_marginLeft="5dip"
-=======
-        android:layout_marginLeft="60dip"
->>>>>>> f636b9e2d7b7f0a24737627da2ee67aab477f277
         android:layout_marginTop="15dip"
         android:text="@string/dropbox_label"
         android:textSize="20sp"
