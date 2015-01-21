@@ -7,7 +7,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.thoughtcatchers.thiki.sync.Sync;
+import org.thoughtcatchers.thiki.sync.SyncDropbox;
 import org.thoughtcatchers.thiki.sync.SyncPrefs;
 import org.thoughtcatchers.thiki.sync.SyncRunner;
 import org.thoughtcatchers.thiki.sync.dropbox.DropboxAuthentication;
@@ -294,7 +294,7 @@ public class ViewPageActivity extends Activity {
 						}
 						syncRequestedByUser = false;
 
-						Sync sync = new Sync(activityHelper, dropboxAuthentication
+						SyncDropbox sync = new SyncDropbox(activityHelper, dropboxAuthentication
 								.getAPI());
 						sync.setStatusHandler(syncProgressHandler);
 						if (sync.perform()) {

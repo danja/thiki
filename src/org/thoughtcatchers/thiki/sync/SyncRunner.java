@@ -89,7 +89,7 @@ public class SyncRunner implements Runnable {
 				}
 				syncRequestedByUser = false;
 
-				Sync sync = new Sync(activityHelper, dropboxAuthentication
+				Sync sync = new SyncDropbox(activityHelper, dropboxAuthentication
 						.getAPI());
 				sync.setStatusHandler(syncProgressHandler);
 				if (sync.perform()) {
