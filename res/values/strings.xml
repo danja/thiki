@@ -69,9 +69,9 @@
     <string name="sparql_label">Connection to SPARQL Endpoints</string>
     <string name="enable_sparql_sync">Enable SPARQL Sync.</string>
     <string name="enter_sparql_query_url">Enter SPARQL Query URL</string>
-    <string name="default_sparql_query_url">http://192.168.0.77:3030/seki/sparql</string>
+    <string name="default_sparql_query_url">http://192.168.0.77:3030/foowiki/sparql</string>
     <string name="enter_sparql_update_url">Enter SPARQL Update URL</string>
-    <string name="default_sparql_update_url">http://192.168.0.77:3030/seki/update</string>
+    <string name="default_sparql_update_url">http://192.168.0.77:3030/foowiki/update</string>
 
     <string name="enter_sparql_user">Enter SPARQL Username</string>
     <string name="default_sparql_user">danja</string>

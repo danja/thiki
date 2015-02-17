@@ -1,25 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" >
-
-    <!-- Common Settings -->
-
-    <TextView
-        android:layout_width="228dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dip"
-        android:layout_marginLeft="5dip"
-        android:layout_marginTop="15dip"
-        android:text="@string/sync_common"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+    android:layout_height="wrap_content" >
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dip"
+            android:text="@string/enable_dropbox_sync"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/enable_dropbox_sync"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="" />
+
+        <Button
+            android:id="@+id/login_submit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/do_dropbox_login" />
+
+        <!-- Common Settings -->
+
+        <TextView
+            android:layout_width="228dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="15dip"
+            android:text="@string/sync_common"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="200dip"
@@ -33,12 +52,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
 
         <TextView
             android:layout_width="200dip"
@@ -52,12 +65,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
 
         <TextView
             android:layout_width="200dip"
@@ -71,12 +78,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
 
         <TextView
             android:layout_width="200dip"
@@ -89,24 +90,18 @@
             android:id="@+id/minutes_spinner"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" />
-    </LinearLayout>
 
-    <!-- File Connection -->
+        <!-- File Connection -->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dip"
-        android:layout_marginLeft="5dip"
-        android:layout_marginTop="15dip"
-        android:text="@string/file_label"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="15dip"
+            android:text="@string/file_label"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="200dip"
@@ -121,12 +116,6 @@
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
 
         <TextView
             android:layout_width="200dip"
@@ -145,24 +134,18 @@
 
             <requestFocus />
         </EditText>
-    </LinearLayout>
 
-    <!-- HTTP Connection -->
+        <!-- HTTP Connection -->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dip"
-        android:layout_marginLeft="5dip"
-        android:layout_marginTop="5dip"
-        android:text="@string/http_label"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:text="@string/http_label"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="200dip"
@@ -177,12 +160,6 @@
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
 
         <TextView
             android:layout_width="200dip"
@@ -237,24 +214,18 @@
 
             <requestFocus />
         </EditText>
-    </LinearLayout>
 
-    <!-- SPARQL Connection -->
+        <!-- SPARQL Connection -->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dip"
-        android:layout_marginLeft="5dip"
-        android:layout_marginTop="15dip"
-        android:text="@string/sparql_label"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="15dip"
+            android:text="@string/sparql_label"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="200dip"
@@ -269,12 +240,6 @@
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
 
         <TextView
             android:layout_width="200dip"
@@ -293,12 +258,6 @@
 
             <requestFocus />
         </EditText>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
 
         <TextView
             android:layout_width="200dip"
@@ -353,44 +312,18 @@
 
             <requestFocus />
         </EditText>
-    </LinearLayout>
 
-    <!-- Dropbox Connection -->
-
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dip"
-        android:layout_marginLeft="5dip"
-        android:layout_marginTop="15dip"
-        android:text="@string/dropbox_label"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        <!-- Dropbox Connection -->
 
         <TextView
-            android:layout_width="200dip"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:paddingRight="10dip"
-            android:text="@string/enable_dropbox_sync"
-            android:textSize="15sp" />
-
-        <CheckBox
-            android:id="@+id/enable_dropbox_sync"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="" />
+            android:layout_marginBottom="5dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="15dip"
+            android:text="@string/dropbox_label"
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/login_submit"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/do_dropbox_login" />
-
-</LinearLayout>
+</ScrollView>

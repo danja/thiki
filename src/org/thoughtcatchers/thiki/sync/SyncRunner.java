@@ -58,8 +58,10 @@ public class SyncRunner implements Runnable {
 	 * @see java.lang.Runnable#run()
 	 */
 	public void run() {
+		Log.d("SyncRunner.run ", " called");
 		while (true) {
 			try {
+				Log.d("SyncRunner.run ", " loop");
 				// sleep in batches of 1000 milliseconds, so it is
 				// easier to interrupt by the "Not A Bad Time" trigger
 				int seconds = 0;

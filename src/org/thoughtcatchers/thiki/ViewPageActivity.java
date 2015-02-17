@@ -63,15 +63,20 @@ public class ViewPageActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		Log.d("ViewPageActivity", "onCreate1");
 		super.onCreate(savedInstanceState);
-
+		Log.d("ViewPageActivity syncRunner", " "+syncRunner);
+		Log.d("ViewPageActivity", "onCreate2");
 		activityHelper = new ThikiActivityHelper(this);
+		Log.d("ViewPageActivity activityHelper", " "+activityHelper);
 		syncRunner.setActivityHelper(activityHelper);
 		if (!activityHelper.isInitialized()) {
 			finish();
 			return;
 		}
+		Log.d("ViewPageActivity", "onCreate3");
 		 syncPrefs = new SyncPrefs(this);
+			Log.d("ViewPageActivity syncPrefs", " "+syncPrefs);
 		syncRunner.setSyncPrefs(syncPrefs);
 
 		hasCustomTitle = requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
@@ -248,9 +253,9 @@ public class ViewPageActivity extends Activity {
 
 	private void startSyncThread() {
 		// show sync progress in title bar
-		
-		//Log.d("ViewPageActivity.syncPrefs = ", " "+syncPrefs);
-		//Log.d("ViewPageActivity.syncRunner = ", " "+syncRunner);
+		Log.d("ViewPageActivitystartSyncThread", "startSyncThread");
+		Log.d("ViewPageActivity.syncPrefs = ", " "+syncPrefs);
+		Log.d("ViewPageActivity.syncRunner = ", " "+syncRunner);
 		// do the initial sync?
 		if (syncPrefs.getOnStartup()) {
 			syncRunner.setNotABadTimeForASync(true);
@@ -376,8 +381,10 @@ public class ViewPageActivity extends Activity {
 		getWebView().setEnabled(false);
 
 		// do time-consuming things asynchronously
-		new Thread(new Runnable() {
-			public void run() {
+		
+		 // sticking back in main threa
+		//new Thread(new Runnable() {
+		//	public void run() {
 				WikiPage page = activityHelper.getPagesFiles().fetchByName(
 						currentPage.PageName);
 
@@ -394,12 +401,17 @@ public class ViewPageActivity extends Activity {
 						"content://org.thoughtcatchers.thiki.localfile/");
 
 				// log("Loading html in view " + activeWebview);
-				getInvisibleWebView().loadDataWithBaseURL("fake://i/will/smack/the/engineer/behind/this/scheme", 
+				
+				// danny - WTF?
+				 getInvisibleWebView().loadDataWithBaseURL("fake://i/will/smack/the/engineer/behind/this/scheme", 
 						htmlBody, "text/html",
 						FileIO.ENCODING, "");
+				
 				// will be made visible in the onpageload eventhandler
-			}
-		}).start();
+				 
+				 // sticking back in main thread
+		//	}
+	//	}).start();
 	}
 
 	public void rememberScrollPos() {
