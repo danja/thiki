@@ -1,0 +1,60 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* .gitignore
+* .idea/
+* .idea/.gitignore
+* .idea/libraries/
+* .idea/libraries/libs.xml
+* .idea/libraries/libs2.xml
+* .idea/misc.xml
+* .idea/modules.xml
+* .idea/vcs.xml
+* .idea/workspace.xml
+* LICENSE.md
+* LICENSE_PREVIOUS.md
+* README.md
+* ic_launcher-web.png
+* litter/
+* litter/meta.ttl
+* proguard-project.txt
+* thiki.iml
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => app/src/main/AndroidManifest.xml
+* libs/androjena_0.5.jar => app/libs/androjena_0.5.jar
+* libs/commons-io-2.4.jar => app/libs/commons-io-2.4.jar
+* libs/dropbox-android-sdk-1.2.2.jar => app/libs/dropbox-android-sdk-1.2.2.jar
+* libs/httpmime-4.0.3.jar => app/libs/httpmime-4.0.3.jar
+* libs/icu4j-3.4.5.jar => app/libs/icu4j-3.4.5.jar
+* libs/iri-0.8.jar => app/libs/iri-0.8.jar
+* libs/json_simple-1.1.jar => app/libs/json_simple-1.1.jar
+* libs/markdownj-core-0.5-SNAPSHOT.jar => app/libs/markdownj-core-0.5-SNAPSHOT.jar
+* libs/slf4j-android-1.6.1-RC1.jar => app/libs/slf4j-android-1.6.1-RC1.jar
+* res/ => app/src/main/res/
+* src/ => app/src/main/java/
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)
