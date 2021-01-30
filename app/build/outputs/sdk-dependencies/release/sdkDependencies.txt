@@ -1,0 +1,86 @@
+# List of SDK dependencies of this app, this information is also included in an encrypted form in the APK.
+# For more information visit: https://d.android.com/r/tools/dependency-metadata
+
+library {
+  digests {
+    sha256: "\264\r\341Mr\305~8n\341,\231\261\233\254\302\370\223\314\330\213\202\324\360s1>H\261J\221e"
+  }
+}
+library {
+  digests {
+    sha256: "aU1_\212R\210}?[,\367\001y\226\220T\211\377+du\210\315y\357\371\375\257\355\236+"
+  }
+}
+library {
+  digests {
+    sha256: "\205\303\324G\207\277\202x\241\351\nZL\345\354\035\232\277\201^o\310\r4\n\2557\'\354\340\3411"
+  }
+}
+library {
+  digests {
+    sha256: "-\224\204\364\306I\367\b\364\177\232G\224e\374r\227p\356ea}\3120\021\203f\002&Od9"
+  }
+}
+library {
+  digests {
+    sha256: "\341\251\256\246\316\253*2J8\177s\2245\362.\354C\206&\f0H|)\314\267\347HN\274\327"
+  }
+}
+library {
+  digests {
+    sha256: "\303!\360\205J\0025\006\375.]?\203|\032wa\365T\310\220\226o2u\244\026Y\267\352NN"
+  }
+}
+library {
+  digests {
+    sha256: "\314jA\334>\252\314\236D\nk\320\322\211\v \323kN\344\b\376-g\022/2\213\266\340\025\201"
+  }
+}
+library {
+  digests {
+    sha256: "Ok\274\376O\027\227)o,\344\310]\023\037f\230G\242\226\270s<\3451*\346Z\357t\247\324"
+  }
+}
+library {
+  digests {
+    sha256: "\240\024\341\322\253\v\030)-\375\224#\020V\214\323(g\214\370:\303\3235y\370\203\254\227\006}M"
+  }
+}
+library_dependencies {
+}
+library_dependencies {
+  library_index: 1
+}
+library_dependencies {
+  library_index: 2
+}
+library_dependencies {
+  library_index: 3
+}
+library_dependencies {
+  library_index: 4
+}
+library_dependencies {
+  library_index: 5
+}
+library_dependencies {
+  library_index: 6
+}
+library_dependencies {
+  library_index: 7
+}
+library_dependencies {
+  library_index: 8
+}
+module_dependencies {
+  module_name: "base"
+  dependency_index: 0
+  dependency_index: 1
+  dependency_index: 2
+  dependency_index: 3
+  dependency_index: 4
+  dependency_index: 5
+  dependency_index: 6
+  dependency_index: 7
+  dependency_index: 8
+}
