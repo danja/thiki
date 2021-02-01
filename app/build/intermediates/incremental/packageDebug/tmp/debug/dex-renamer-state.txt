@@ -1,4 +1,7 @@
-#Sat Jan 30 22:26:42 WAT 2021
-base.0=/home/danny/android/projects/thiki/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex
+#Mon Feb 01 21:50:25 WAT 2021
+base.0=/home/danny/android/projects/thiki/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+path.1=classes.dex
+renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
+base.1=/home/danny/android/projects/thiki/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex

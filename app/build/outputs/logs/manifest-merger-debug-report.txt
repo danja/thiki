@@ -27,6 +27,8 @@ ADDED from /home/danny/android/projects/thiki/app/src/main/AndroidManifest.xml:5
 		ADDED from /home/danny/android/projects/thiki/app/src/main/AndroidManifest.xml:5:45-77
 	android:icon
 		ADDED from /home/danny/android/projects/thiki/app/src/main/AndroidManifest.xml:5:15-44
+	android:theme
+		ADDED from /home/danny/android/projects/thiki/app/src/main/AndroidManifest.xml:5:78-112
 provider#org.thoughtcatchers.thiki.LocalFileContentProvider
 ADDED from /home/danny/android/projects/thiki/app/src/main/AndroidManifest.xml:6:3-7:64
 	android:authorities

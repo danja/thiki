@@ -141,6 +141,7 @@ int string v2_update_text 0x7f060045
 int string v2_update_title 0x7f060046
 int style AppBaseTheme 0x7f070000
 int style AppTheme 0x7f070001
+int style CustomTheme 0x7f070002
 int[] styleable com_admob_android_ads_AdView { 0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004 }
 int styleable com_admob_android_ads_AdView_backgroundColor 0
 int styleable com_admob_android_ads_AdView_keywords 1

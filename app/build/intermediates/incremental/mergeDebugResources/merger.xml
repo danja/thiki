@@ -7,6 +7,7 @@
         
     </style><style name="AppTheme" parent="AppBaseTheme">
         
+    </style><style name="CustomTheme" parent="android:Theme">
     </style></file><file path="/home/danny/android/projects/thiki/app/src/main/res/values/attrs.xml" qualifiers=""><declare-styleable name="com.admob.android.ads.AdView">
 		<attr format="color" name="backgroundColor"/>
 		<attr format="color" name="primaryTextColor"/>

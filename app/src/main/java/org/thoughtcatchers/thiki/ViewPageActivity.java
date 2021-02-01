@@ -81,7 +81,10 @@ public class ViewPageActivity extends Activity {
 
 		hasCustomTitle = requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 
+		Log.d("ViewPageActivity", "line 84");
+
 		setContentView(R.layout.view_page);
+
 		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
 				R.layout.custom_titlebar);
 

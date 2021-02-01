@@ -6,20 +6,20 @@
                 {
                     "source": "/home/danny/android/projects/thiki/app/src/main/res/values/styles.xml",
                     "from": {
-                        "startLines": "6,15",
-                        "startColumns": "4,4",
-                        "startOffsets": "186,510",
-                        "endLines": "12,17",
-                        "endColumns": "12,12",
-                        "endOffsets": "472,665"
+                        "startLines": "9,18,2",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "254,578,17",
+                        "endLines": "15,20,3",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "540,733,79"
                     },
                     "to": {
-                        "startLines": "105,112",
-                        "startColumns": "4,4",
-                        "startOffsets": "5836,6127",
-                        "endLines": "111,114",
-                        "endColumns": "12,12",
-                        "endOffsets": "6122,6282"
+                        "startLines": "105,112,115",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "5836,6127,6287",
+                        "endLines": "111,114,116",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "6122,6282,6349"
                     }
                 },
                 {
@@ -33,12 +33,12 @@
                         "endOffsets": "382"
                     },
                     "to": {
-                        "startLines": "115",
+                        "startLines": "117",
                         "startColumns": "4",
-                        "startOffsets": "6287",
-                        "endLines": "121",
+                        "startOffsets": "6354",
+                        "endLines": "123",
                         "endColumns": "21",
-                        "endOffsets": "6604"
+                        "endOffsets": "6671"
                     }
                 },
                 {
