@@ -1,0 +1,110 @@
+[
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/drawable_stock_exit.png.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/drawable/stock_exit.png"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/layout_sync.xml.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/layout/sync.xml"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/drawable_dropbox.png.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/drawable/dropbox.png"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/drawable-mdpi_icon.png.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/drawable-mdpi/icon.png"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/drawable_back.png.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/drawable/back.png"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/drawable_css.png.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/drawable/css.png"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/drawable-hdpi_icon.png.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/drawable-hdpi/icon.png"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/drawable_settings.png.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/drawable/settings.png"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/layout_newpage_name.xml.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/layout/newpage_name.xml"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/layout_pageslist_item.xml.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/layout/pageslist_item.xml"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/drawable-mdpi_ic_launcher.png.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/drawable-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/layout_custom_titlebar.xml.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/layout/custom_titlebar.xml"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/drawable_sync.png.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/drawable/sync.png"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/drawable-xxhdpi_ic_launcher.png.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/drawable-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/drawable_stock_copy.png.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/drawable/stock_copy.png"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/drawable_about.png.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/drawable/about.png"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/menu_viewpage_menu.xml.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/menu/viewpage_menu.xml"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/layout_pageslist.xml.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/layout/pageslist.xml"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/drawable_help.png.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/drawable/help.png"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/menu_pages_contextmenu.xml.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/menu/pages_contextmenu.xml"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/drawable-hdpi_ic_launcher.png.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/drawable-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/drawable_edit_select_all.png.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/drawable/edit_select_all.png"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/drawable-xhdpi_ic_launcher.png.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/drawable-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/layout_view_page.xml.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/layout/view_page.xml"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/drawable-ldpi_icon.png.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/drawable-ldpi/icon.png"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/layout_edit_page.xml.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/layout/edit_page.xml"
+    },
+    {
+        "merged": "org.thoughtcatchers.thiki.app-merged_res-4:/drawable_gohome.png.flat",
+        "source": "org.thoughtcatchers.thiki.app-main-6:/drawable/gohome.png"
+    }
+]

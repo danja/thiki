@@ -1,0 +1,4 @@
+it.hyperdata.thiki.test.app-androidTest-0 /home/danny/HKMS/thiki/app/build/generated/res/resValues/androidTest/debug
+it.hyperdata.thiki.test.app-mergeDebugAndroidTestResources-1 /home/danny/HKMS/thiki/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
+it.hyperdata.thiki.test.app-mergeDebugAndroidTestResources-2 /home/danny/HKMS/thiki/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
+it.hyperdata.thiki.test.app-merged_res-3 /home/danny/HKMS/thiki/app/build/intermediates/merged_res/debugAndroidTest

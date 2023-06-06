@@ -1,0 +1,110 @@
+[
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable_edit_select_all.png.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/drawable/edit_select_all.png"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable_back.png.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/drawable/back.png"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable-ldpi_icon.png.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/drawable-ldpi/icon.png"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable_stock_copy.png.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/drawable/stock_copy.png"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/layout_sync.xml.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/layout/sync.xml"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/menu_pages_contextmenu.xml.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/menu/pages_contextmenu.xml"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/menu_viewpage_menu.xml.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/menu/viewpage_menu.xml"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/layout_pageslist_item.xml.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/layout/pageslist_item.xml"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable-mdpi_ic_launcher.png.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/drawable-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable_sync.png.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/drawable/sync.png"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable_dropbox.png.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/drawable/dropbox.png"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable_about.png.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/drawable/about.png"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable-xxhdpi_ic_launcher.png.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/drawable-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable-mdpi_icon.png.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/drawable-mdpi/icon.png"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable_settings.png.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/drawable/settings.png"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/layout_custom_titlebar.xml.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/layout/custom_titlebar.xml"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable_gohome.png.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/drawable/gohome.png"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable_stock_exit.png.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/drawable/stock_exit.png"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/layout_newpage_name.xml.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/layout/newpage_name.xml"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable_help.png.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/drawable/help.png"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable-hdpi_icon.png.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/drawable-hdpi/icon.png"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable-xhdpi_ic_launcher.png.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/drawable-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable-hdpi_ic_launcher.png.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/drawable-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/layout_edit_page.xml.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/layout/edit_page.xml"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/layout_pageslist.xml.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/layout/pageslist.xml"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable_css.png.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/drawable/css.png"
+    },
+    {
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/layout_view_page.xml.flat",
+        "source": "it.hyperdata.thiki.app-main-5:/layout/view_page.xml"
+    }
+]

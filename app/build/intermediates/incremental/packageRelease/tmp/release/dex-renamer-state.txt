@@ -1,0 +1,4 @@
+#Tue Jun 06 02:12:49 CEST 2023
+base.0=/home/danny/HKMS/thiki/app/build/intermediates/dex/release/mergeDexRelease/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

@@ -1,0 +1,7 @@
+it.hyperdata.thiki.app-pngs-0 /home/danny/HKMS/thiki/app/build/generated/res/pngs/release
+it.hyperdata.thiki.app-resValues-1 /home/danny/HKMS/thiki/app/build/generated/res/resValues/release
+it.hyperdata.thiki.app-packageReleaseResources-2 /home/danny/HKMS/thiki/app/build/intermediates/incremental/release/packageReleaseResources/merged.dir
+it.hyperdata.thiki.app-packageReleaseResources-3 /home/danny/HKMS/thiki/app/build/intermediates/incremental/release/packageReleaseResources/stripped.dir
+it.hyperdata.thiki.app-merged_res-4 /home/danny/HKMS/thiki/app/build/intermediates/merged_res/release
+it.hyperdata.thiki.app-main-5 /home/danny/HKMS/thiki/app/src/main/res
+it.hyperdata.thiki.app-release-6 /home/danny/HKMS/thiki/app/src/release/res

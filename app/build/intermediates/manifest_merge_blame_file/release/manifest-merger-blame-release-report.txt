@@ -1,0 +1,98 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="it.hyperdata.thiki"
+4    android:versionCode="1"
+5    android:versionName="One Short Plank" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="25"
+8-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:32:2-64
+11-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:32:19-61
+12    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+12-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:33:2-78
+12-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:33:19-75
+13
+14    <application
+14-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:5:2-31:16
+15        android:extractNativeLibs="false"
+16        android:icon="@drawable/icon"
+16-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:5:15-44
+17        android:label="@string/app_name"
+17-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:5:45-77
+18        android:theme="@style/CustomTheme" >
+18-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:5:78-112
+19        <provider
+19-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:6:3-7:57
+20            android:name="it.hyperdata.thiki.LocalFileContentProvider"
+20-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:6:13-71
+21            android:authorities="it.hyperdata.thiki.localfile" />
+21-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:7:4-54
+22
+23        <activity android:name="it.hyperdata.thiki.PagesListActivity" />
+23-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:8:3-67
+23-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:8:13-64
+24        <activity
+24-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:9:3-122
+25            android:name="it.hyperdata.thiki.NewPageNameActivity"
+25-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:9:13-66
+26            android:theme="@android:style/Theme.Dialog" />
+26-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:9:67-110
+27        <activity android:name="it.hyperdata.thiki.EditPageActivity" />
+27-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:10:3-75
+27-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:10:13-63
+28        <activity
+28-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:11:3-16:14
+29            android:name="it.hyperdata.thiki.ViewPageActivity"
+29-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:11:37-87
+30            android:exported="true" >
+30-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:11:13-36
+31            <intent-filter>
+31-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:12:4-15:20
+32                <action android:name="android.intent.action.MAIN" />
+32-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:13:5-57
+32-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:13:13-54
+33
+34                <category android:name="android.intent.category.LAUNCHER" />
+34-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:14:5-65
+34-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:14:15-62
+35            </intent-filter>
+36        </activity>
+37        <activity android:name="it.hyperdata.thiki.sync.EditSyncPreferencesActivity" />
+37-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:17:3-82
+37-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:17:13-79
+38        <activity
+38-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:18:2-30:16
+39            android:name="com.dropbox.client2.android.AuthActivity"
+39-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:19:7-62
+40            android:configChanges="orientation|keyboard"
+40-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:22:7-51
+41            android:exported="true"
+41-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:20:3-26
+42            android:launchMode="singleTask" >
+42-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:21:7-38
+43            <intent-filter>
+43-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:23:7-29:23
+44                <data android:scheme="db-rr7u6lr6lo1i78b" />
+44-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:24:9-53
+44-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:24:15-50
+45                <!-- data android:scheme="db-l8tliwhtfvkrxl7" / -->
+46                <action android:name="android.intent.action.VIEW" />
+46-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:26:9-61
+46-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:26:17-58
+47
+48                <category android:name="android.intent.category.BROWSABLE" />
+48-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:27:9-69
+48-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:27:19-67
+49                <category android:name="android.intent.category.DEFAULT" />
+49-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:28:9-68
+49-->/home/danny/HKMS/thiki/app/src/main/AndroidManifest.xml:28:19-65
+50            </intent-filter>
+51        </activity>
+52    </application>
+53
+54</manifest>

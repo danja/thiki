@@ -1,0 +1,7 @@
+org.thoughtcatchers.thiki.app-pngs-0 /home/danny/HKMS/thiki/app/build/generated/res/pngs/debug
+org.thoughtcatchers.thiki.app-resValues-1 /home/danny/HKMS/thiki/app/build/generated/res/resValues/debug
+org.thoughtcatchers.thiki.app-mergeDebugResources-2 /home/danny/HKMS/thiki/app/build/intermediates/incremental/debug/mergeDebugResources/merged.dir
+org.thoughtcatchers.thiki.app-mergeDebugResources-3 /home/danny/HKMS/thiki/app/build/intermediates/incremental/debug/mergeDebugResources/stripped.dir
+org.thoughtcatchers.thiki.app-merged_res-4 /home/danny/HKMS/thiki/app/build/intermediates/merged_res/debug
+org.thoughtcatchers.thiki.app-debug-5 /home/danny/HKMS/thiki/app/src/debug/res
+org.thoughtcatchers.thiki.app-main-6 /home/danny/HKMS/thiki/app/src/main/res

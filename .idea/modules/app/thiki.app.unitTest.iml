@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":app:unitTest" external.linked.project.path="$MODULE_DIR$/../../../app" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.type="sourceSet" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="android" name="Android">
+      <configuration>
+        <option name="SELECTED_BUILD_VARIANT" value="release" />
+        <option name="ALLOW_USER_CONFIGURATION" value="false" />
+        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
+        <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
+        <option name="RES_FOLDERS_RELATIVE_PATH" value="" />
+        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="" />
+        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_11">
+    <output url="file://$MODULE_DIR$/../../../app/build/intermediates/javac/release/classes" />
+    <output-test url="file://$MODULE_DIR$/../../../app/build/intermediates/javac/releaseUnitTest/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../app/build/generated/ap_generated_sources/releaseUnitTest/out" />
+    <content url="file://$MODULE_DIR$/../../../app/src/test" />
+    <content url="file://$MODULE_DIR$/../../../app/src/testRelease" />
+    <orderEntry type="jdk" jdkName="Android API 31 Platform" jdkType="Android SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="thiki.app.main" scope="TEST" />
+    <orderEntry type="library" scope="TEST" name="Gradle: ./app/libs/androjena_0.5.jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: ./app/libs/commons-io-2.4.jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: ./app/libs/dropbox-android-sdk-1.2.2.jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: ./app/libs/httpmime-4.0.3.jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: ./app/libs/icu4j-3.4.5.jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: ./app/libs/iri-0.8.jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: ./app/libs/json_simple-1.1.jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: ./app/libs/markdownj-core-0.5-SNAPSHOT.jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: ./app/libs/slf4j-android-1.6.1-RC1.jar" level="project" />
+  </component>
+  <component name="TestModuleProperties" production-module="thiki.app.main" />
+</module>

@@ -1,0 +1,19 @@
+<lint-module
+    format="1"
+    dir="/home/danny/HKMS/thiki/app"
+    name=":app"
+    type="APP"
+    maven="thiki:app:"
+    agpVersion="8.0.2"
+    buildFolder="build"
+    bootClassPath="/home/danny/android-sdk/Sdk/platforms/android-31/android.jar:/home/danny/android-sdk/Sdk/build-tools/33.0.2/core-lambda-stubs.jar"
+    javaSourceLevel="11"
+    compileTarget="android-31"
+    neverShrinking="true">
+  <lintOptions
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="release"/>
+</lint-module>
