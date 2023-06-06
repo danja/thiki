@@ -1,110 +1,110 @@
 [
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/drawable_css.png.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/drawable/css.png"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable_edit_select_all.png.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/drawable/edit_select_all.png"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/drawable_stock_copy.png.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/drawable/stock_copy.png"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable_back.png.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/drawable/back.png"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_launcher.png.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/drawable-hdpi/ic_launcher.png"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable-ldpi_icon.png.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/drawable-ldpi/icon.png"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/drawable_edit_select_all.png.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/drawable/edit_select_all.png"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable_stock_copy.png.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/drawable/stock_copy.png"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/drawable_help.png.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/drawable/help.png"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/layout_sync.xml.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/layout/sync.xml"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/layout_pageslist.xml.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/layout/pageslist.xml"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/menu_pages_contextmenu.xml.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/menu/pages_contextmenu.xml"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/drawable-hdpi_icon.png.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/drawable-hdpi/icon.png"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/menu_viewpage_menu.xml.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/menu/viewpage_menu.xml"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/drawable_gohome.png.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/drawable/gohome.png"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/layout_pageslist_item.xml.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/layout/pageslist_item.xml"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/layout_sync.xml.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/layout/sync.xml"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable-mdpi_ic_launcher.png.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/drawable-mdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/drawable_dropbox.png.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/drawable/dropbox.png"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable_sync.png.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/drawable/sync.png"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/menu_pages_contextmenu.xml.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/menu/pages_contextmenu.xml"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable_dropbox.png.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/drawable/dropbox.png"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/layout_newpage_name.xml.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/layout/newpage_name.xml"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable_about.png.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/drawable/about.png"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/drawable_stock_exit.png.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/drawable/stock_exit.png"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable-xxhdpi_ic_launcher.png.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/drawable-xxhdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/layout_view_page.xml.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/layout/view_page.xml"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable-mdpi_icon.png.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/drawable-mdpi/icon.png"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/drawable-ldpi_icon.png.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/drawable-ldpi/icon.png"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable_settings.png.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/drawable/settings.png"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/drawable_sync.png.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/drawable/sync.png"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/layout_custom_titlebar.xml.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/layout/custom_titlebar.xml"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/menu_viewpage_menu.xml.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/menu/viewpage_menu.xml"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable_gohome.png.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/drawable/gohome.png"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_launcher.png.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/drawable-mdpi/ic_launcher.png"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable_stock_exit.png.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/drawable/stock_exit.png"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_launcher.png.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/drawable-xhdpi/ic_launcher.png"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/layout_newpage_name.xml.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/layout/newpage_name.xml"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/layout_edit_page.xml.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/layout/edit_page.xml"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable_help.png.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/drawable/help.png"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_launcher.png.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/drawable-xxhdpi/ic_launcher.png"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable-hdpi_icon.png.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/drawable-hdpi/icon.png"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/drawable_about.png.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/drawable/about.png"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable-xhdpi_ic_launcher.png.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/drawable-xhdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/drawable_settings.png.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/drawable/settings.png"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable-hdpi_ic_launcher.png.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/drawable-hdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/drawable-mdpi_icon.png.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/drawable-mdpi/icon.png"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/layout_edit_page.xml.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/layout/edit_page.xml"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/drawable_back.png.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/drawable/back.png"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/layout_pageslist.xml.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/layout/pageslist.xml"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/layout_custom_titlebar.xml.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/layout/custom_titlebar.xml"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/drawable_css.png.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/drawable/css.png"
     },
     {
-        "merged": "/home/danny/android/projects/thiki/app/build/intermediates/res/merged/debug/layout_pageslist_item.xml.flat",
-        "source": "/home/danny/android/projects/thiki/app/src/main/res/layout/pageslist_item.xml"
+        "merged": "it.hyperdata.thiki.app-merged_res-4:/layout_view_page.xml.flat",
+        "source": "it.hyperdata.thiki.app-main-6:/layout/view_page.xml"
     }
 ]

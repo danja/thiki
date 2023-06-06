@@ -1,17 +1,19 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "30.0.3"
+    compileSdkVersion 31
+    buildToolsVersion '33.0.2'
 
     defaultConfig {
-        applicationId "org.thoughtcatchers.thiki"
-        minSdkVersion 23
-        targetSdkVersion 28
+        applicationId "it.hyperdata.thiki"
+        minSdk 25
+        targetSdkVersion 31
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_8
             targetCompatibility JavaVersion.VERSION_1_8
         }
+        versionCode 1
+        versionName 'One Short Plank'
     }
 
     buildTypes {
@@ -19,6 +21,15 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
+    }
+    namespace 'it.hyperdata.thiki'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    dependenciesInfo {
+        includeInApk true
+        includeInBundle true
     }
 }
 
